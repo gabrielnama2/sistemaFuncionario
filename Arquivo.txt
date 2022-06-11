@@ -1,0 +1,22 @@
+
+
+// ------------------------------------------
+
+DADOS DO FUNCIONARIO
+
+Nome: Gabriel
+Cargo: Estagiario
+Idade: 24
+Salario: 1000.0
+
+BONUS DO FUNCIONARIO
+
+Bonus padrão: generoso = 0.1%
+Faltas: 5 = 0.01%
+Tempo de serviço: 3 = 0.02%
+Funcionario do mes: true = 0.2%
+Salario final: 1330.0
+
+Data: 2022-06-11
+
+------------------------------------------ //
