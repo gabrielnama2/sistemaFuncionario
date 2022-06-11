@@ -8,7 +8,7 @@
 </h4>
 
 <h6 align="center">
-    <br>Código da disciplina: COD_ATIVIDADE = SGF_2022_1
+    Código da disciplina: COD_ATIVIDADE = SGF_2022_1
 </h6>
 
 </br>
