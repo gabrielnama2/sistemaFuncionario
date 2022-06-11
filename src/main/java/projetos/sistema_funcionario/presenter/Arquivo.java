@@ -1,4 +1,5 @@
 package projetos.sistema_funcionario.presenter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -9,13 +10,11 @@ import org.apache.commons.lang3.ArrayUtils;
 import projetos.sistema_funcionario.model.Funcionario;
 
 public class Arquivo {
+    
     public void salvar(Funcionario funcionario) throws IOException{
         
-        /*É NECESSÁRIO CRIAR O ARQUIVO TXT ANTES*/
-        /*Troque DIRETORIO pelo diretório da sua máquina, onde o programa foi extraído*/
-        
-        Path caminho = Paths.get("C:\\DIRETORIO\\sistema_funcionario\\sistema_funcionario\\src\\main\\java\\projetos\\sistema_funcionario\\presenter/Arquivo.txt");
-        //Path caminho = Paths.get("C:\\Users\\Gabriel\\Desktop\\sistema_funcionario\\sistema_funcionario\\src\\main\\java\\projetos\\sistema_funcionario\\presenter/Arquivo.txt");
+        //DIRETÓRIO DO ARQUIVO .TXT
+        Path caminho = Paths.get("Arquivo.txt");
         
         //LÊ E ESCREVE NO ARQUIVO (CONCATENADO)
         String textoEscrita = funcionario.toString();
@@ -31,5 +30,10 @@ public class Arquivo {
         catch(Exception erro){
             
         }
+    }
+    public Arquivo() throws IOException{
+        
+        //CRIA O ARQUIVO .TXT
+        FileWriter criaArquivo = new FileWriter("Arquivo.txt", true); 
     }
 }
