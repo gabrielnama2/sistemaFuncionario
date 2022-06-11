@@ -5,8 +5,11 @@
 
 <h4 align="center">
   Trabalho desenvolvido para a disciplina de Projetos de Sistemas de Software. 
-  <br>Código da disciplina: COD_ATIVIDADE = SGF_2022_1
 </h4>
+
+<h6 align="center">
+    <br>Código da disciplina: COD_ATIVIDADE = SGF_2022_1
+</h6>
 
 </br>
 
