@@ -83,6 +83,13 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setHeaderValue("ID");
+            jTable1.getColumnModel().getColumn(1).setHeaderValue("Funcionário");
+            jTable1.getColumnModel().getColumn(2).setHeaderValue("Idade");
+            jTable1.getColumnModel().getColumn(3).setHeaderValue("Cargo");
+            jTable1.getColumnModel().getColumn(4).setHeaderValue("Salário inicial");
+        }
 
         javax.swing.GroupLayout painelBuscarFuncionarioLayout = new javax.swing.GroupLayout(painelBuscarFuncionario);
         painelBuscarFuncionario.setLayout(painelBuscarFuncionarioLayout);

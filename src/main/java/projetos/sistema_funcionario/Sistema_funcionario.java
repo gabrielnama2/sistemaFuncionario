@@ -3,8 +3,10 @@ package projetos.sistema_funcionario;
 import java.io.IOException;
 
 import projetos.sistema_funcionario.salario.Salario;
+
 import projetos.sistema_funcionario.model.*;
 import projetos.sistema_funcionario.presenter.Arquivo;
+import projetos.sistema_funcionario.presenter.TelaManterFuncionarioPresenter;
 
 
 public class Sistema_funcionario {
@@ -37,8 +39,9 @@ public class Sistema_funcionario {
         // Bonus
         funcionarios.getFuncionario(Danilo).getSalario().listaHistorico();
     }
+    
 
     public static void main(String[] args) throws IOException {
-        seeds();
+        new TelaManterFuncionarioPresenter();
     }
 }

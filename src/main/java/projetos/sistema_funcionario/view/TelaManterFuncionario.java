@@ -4,6 +4,8 @@
  */
 package projetos.sistema_funcionario.view;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author Gabriel Namã
@@ -31,13 +33,14 @@ public class TelaManterFuncionario extends javax.swing.JFrame {
         labelNome = new javax.swing.JLabel();
         labelIdade = new javax.swing.JLabel();
         labelCargo = new javax.swing.JLabel();
-        labelBonus = new javax.swing.JLabel();
-        campoTextoNome = new javax.swing.JTextField();
-        campoTextoIdade = new javax.swing.JTextField();
-        selectCargo = new javax.swing.JComboBox<>();
-        selectBonus = new javax.swing.JComboBox<>();
-        botaoSalvar = new javax.swing.JButton();
-        botaoCancelar = new javax.swing.JButton();
+        jNome = new javax.swing.JTextField();
+        jIdade = new javax.swing.JTextField();
+        jCargo = new javax.swing.JComboBox<>();
+        jSalvar = new javax.swing.JButton();
+        jCancelar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jSalario = new javax.swing.JTextField();
+        isGeneroso = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manter funcionários");
@@ -52,56 +55,63 @@ public class TelaManterFuncionario extends javax.swing.JFrame {
 
         labelCargo.setText("Cargo:");
 
-        labelBonus.setText("Bônus:");
-
-        campoTextoNome.addActionListener(new java.awt.event.ActionListener() {
+        jNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoTextoNomeActionPerformed(evt);
+                jNomeActionPerformed(evt);
             }
         });
 
-        selectCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estagiário", "Programador", "Analista", "Gerente de Projetos" }));
+        jCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estagiário", "Programador", "Analista", "Gerente de Projetos" }));
 
-        selectBonus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Generoso" }));
+        jSalvar.setText("Salvar");
 
-        botaoSalvar.setText("Salvar");
+        jCancelar.setText("Cancelar");
 
-        botaoCancelar.setText("Cancelar");
+        jLabel1.setText("Salário: R$");
+
+        jSalario.setText(" ");
+
+        isGeneroso.setText("Bônus generoso");
 
         javax.swing.GroupLayout painelManterFuncionarioLayout = new javax.swing.GroupLayout(painelManterFuncionario);
         painelManterFuncionario.setLayout(painelManterFuncionarioLayout);
         painelManterFuncionarioLayout.setHorizontalGroup(
             painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelManterFuncionarioLayout.createSequentialGroup()
-                .addContainerGap(214, Short.MAX_VALUE)
+            .addGroup(painelManterFuncionarioLayout.createSequentialGroup()
+                .addGap(215, 215, 215)
                 .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelManterFuncionarioLayout.createSequentialGroup()
                         .addComponent(tituloJanela)
                         .addGap(324, 324, 324))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelManterFuncionarioLayout.createSequentialGroup()
-                        .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(painelManterFuncionarioLayout.createSequentialGroup()
-                                .addComponent(labelCargo)
-                                .addGap(18, 18, 18)
-                                .addComponent(selectCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(painelManterFuncionarioLayout.createSequentialGroup()
-                                .addComponent(labelIdade)
-                                .addGap(21, 21, 21)
-                                .addComponent(campoTextoIdade))
+                        .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(painelManterFuncionarioLayout.createSequentialGroup()
                                 .addComponent(labelNome)
                                 .addGap(18, 18, 18)
-                                .addComponent(campoTextoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jNome))
                             .addGroup(painelManterFuncionarioLayout.createSequentialGroup()
-                                .addComponent(labelBonus)
-                                .addGap(18, 18, 18)
-                                .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(selectBonus, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelIdade)
+                                .addGap(21, 21, 21)
+                                .addComponent(jIdade))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, painelManterFuncionarioLayout.createSequentialGroup()
+                                .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(painelManterFuncionarioLayout.createSequentialGroup()
-                                        .addComponent(botaoSalvar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(botaoCancelar)))))
-                        .addGap(203, 203, 203))))
+                                        .addComponent(labelCargo)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(isGeneroso, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jCancelar))
+                                .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(painelManterFuncionarioLayout.createSequentialGroup()
+                                        .addGap(113, 113, 113)
+                                        .addComponent(jSalvar))
+                                    .addGroup(painelManterFuncionarioLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(170, 170, 170))))
         );
         painelManterFuncionarioLayout.setVerticalGroup(
             painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,24 +121,24 @@ public class TelaManterFuncionario extends javax.swing.JFrame {
                 .addGap(59, 59, 59)
                 .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNome)
-                    .addComponent(campoTextoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelIdade)
-                    .addComponent(campoTextoIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelCargo)
-                    .addComponent(selectCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(isGeneroso)
                 .addGap(18, 18, 18)
                 .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelBonus)
-                    .addComponent(selectBonus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoSalvar)
-                    .addComponent(botaoCancelar))
-                .addContainerGap(242, Short.MAX_VALUE))
+                    .addComponent(jCancelar)
+                    .addComponent(jSalvar))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -149,58 +159,66 @@ public class TelaManterFuncionario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoTextoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTextoNomeActionPerformed
+    private void jNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoTextoNomeActionPerformed
+    }//GEN-LAST:event_jNomeActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaManterFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaManterFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaManterFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaManterFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void jIdadeActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        // TODO add your handling code here:
+    }                                      
+
+    private void jSalvarActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    }                                       
+
+    private void isGenerosoActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // TODO add your handling code here:
+    }                                          
+
+    public JButton getSalvar() {
+        return jSalvar;
+    }
+    
+    public JButton getCancelar() {
+        return jCancelar;
+    }
+    
+    public String getNome() {
+        return jNome.getText();
+    }
+    
+    public String getCargo() {
+        return jCargo.getSelectedItem().toString();
+    }
+    
+    public int getIdade() {
+        return Integer.parseInt(jIdade.getText());
+    }
+    
+    public double getSalario() {
+        return Double.parseDouble(jSalario.getText());
+    }
+    
+    public String getTipoBonus() {
+        if (isGeneroso.isSelected()) {
+            return "generoso";
+        } else {
+            return "normal";
         }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaManterFuncionario().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoCancelar;
-    private javax.swing.JButton botaoSalvar;
-    private javax.swing.JTextField campoTextoIdade;
-    private javax.swing.JTextField campoTextoNome;
-    private javax.swing.JLabel labelBonus;
+    private javax.swing.JCheckBox isGeneroso;
+    private javax.swing.JButton jCancelar;
+    private javax.swing.JComboBox<String> jCargo;
+    private javax.swing.JTextField jIdade;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField jNome;
+    private javax.swing.JTextField jSalario;
+    private javax.swing.JButton jSalvar;
     private javax.swing.JLabel labelCargo;
     private javax.swing.JLabel labelIdade;
     private javax.swing.JLabel labelNome;
     private javax.swing.JPanel painelManterFuncionario;
-    private javax.swing.JComboBox<String> selectBonus;
-    private javax.swing.JComboBox<String> selectCargo;
     private javax.swing.JLabel tituloJanela;
     // End of variables declaration//GEN-END:variables
 }
