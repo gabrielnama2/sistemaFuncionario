@@ -1,10 +1,18 @@
 package projetos.sistema_funcionario.salario;
-import java.time.LocalDate;
+
+import projetos.sistema_funcionario.salario.Historico;
+
+import java.time.LocalDate; 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Salario {
     private static final Logger LOGGER = LoggerFactory.getLogger(Salario.class);
+    
+    private List<Historico> historico = new ArrayList<Historico>();
     
     private String tipoBonusPadrao;
     private double bonusPadrao;
@@ -19,32 +27,10 @@ public class Salario {
     private double bonusFuncionarioMes;
     
     private double salarioBase;
-    private double bonusTotal;
     private double salarioFinal;
     
-    public Salario() {}
-    
-    //SOMA TODOS OS BÔNUS COM O SALÁRIO BASE
-    public void calcularSalario(){
-        this.calcularSalarioFinal(this.getSalarioBase()*(1+this.getBonusTotal()));
-    }
-    
-    //IMPRIME O SALÁRIO FINAL
-    public void imprimeSalarioFinal(){
-        System.out.println("\n-- Calculando salario final...\n\nSalario Final: " + this.getSalarioFinal());
-    }
-    
-    @Override
-    public String toString() {
-        return "\n\nBONUS DO FUNCIONARIO\n" +
-                "\nBonus padrão: " + tipoBonusPadrao + " = " + bonusPadrao + "%" +
-                "\nFaltas: " + faltas + " = " + bonusFaltas + "%" +
-                "\nTempo de serviço: " + tempoServico + " = " + bonusTempoServico + "%" +
-                "\nFuncionario do mes: " + funcionarioMes + " = " + bonusFuncionarioMes + "%" +
-                "\nSalario final: " + salarioFinal +
-                "\n\nData: " + LocalDate.now() +
-                "\n\n------------------------------------------ //";
-    }
+    private double bonusAbsoluto;
+    private double bonusRelativo;
     
     //CONSTRUTOR
     public Salario(String tipoBonusPadrao, int faltas, int tempoServico, boolean funcionarioMes, double salarioBase) {    
@@ -56,7 +42,67 @@ public class Salario {
         this.calcularSalario();
     }
     
-    //-- GETS E SETS --
+    public void calcularSalario(){
+        this.setBonus();
+        double bonusAbsoluto = this.getBonusAbsoluto();
+        this.setSalarioFinal(salarioBase + bonusAbsoluto);
+        this.incluiHistorico(bonusAbsoluto);
+    }
+    
+    //IMPRIME O SALÁRIO FINAL
+    public void imprimeSalarioFinal(){
+        System.out.println("\n-- Calculando salario final...\n\nSalario Final: " + this.getSalarioFinal());
+    }
+    
+    @Override
+    public String toString() {
+        return "\n\nBONUS DO FUNCIONARIO\n" +
+            "\nBonus padrão: " + tipoBonusPadrao + " = " + bonusPadrao + "%" +
+            "\nFaltas: " + faltas + " = " + bonusFaltas + "%" +
+            "\nTempo de serviço: " + tempoServico + " = " + bonusTempoServico + "%" +
+            "\nFuncionario do mes: " + funcionarioMes + " = " + bonusFuncionarioMes + "%" +
+            "\nSalario final: " + salarioFinal +
+            "\n\nData: " + LocalDate.now() +
+            "\n\n------------------------------------------ //";
+    }
+    
+    // HISTORICO
+    public void listaHistorico() {
+        for (Historico h: this.getHistorico()) {
+            System.out.println(h.toString());
+        }
+    }
+    
+    public void incluiHistorico(double d) {
+        Historico novoHistorico = new Historico(d);
+        this.getHistorico().add(novoHistorico);
+    }
+    
+    public double getBonusByDate(LocalDate data) {
+        double returnBonus = 0;
+        boolean achouBonus = false;
+        try {
+            for (Historico h: this.getHistorico()) {
+                if (h.getData().isEqual(data)) {
+                    returnBonus = h.getBonus();
+                }
+            }
+            if (!achouBonus) {
+                throw new RuntimeException("Funcionario não existente");
+            }
+        } catch(Exception e) {
+            LOGGER.info("Erro: " + e);
+        } 
+        return returnBonus;
+    }
+    
+    public List<Historico> getHistorico() {
+        return this.historico;
+    }
+    
+    public void setHistorico(List<Historico> h) {
+        this.historico = h;
+    }
     
     //BÔNUS PADRÃO
     public String getTipoBonusPadrao() {
@@ -74,7 +120,7 @@ public class Salario {
     public double getBonusPadrao() {
         return bonusPadrao;
     }
-    
+   
     //BÔNUS POR FALTAS
     public int getFaltas() {
         return faltas;
@@ -94,7 +140,7 @@ public class Salario {
     public double getBonusFaltas() {
         return bonusFaltas;
     }
-    
+
     //BÔNUS POR TEMPO DE SERVIÇO
     public int getTempoServico() {
         return tempoServico;
@@ -150,13 +196,24 @@ public class Salario {
     public double getSalarioFinal() {
         return salarioFinal;
     }
-    public void calcularSalarioFinal(double salarioFinal) {
-        this.salarioFinal = salarioFinal;
+    
+    public void setSalarioFinal(double d) {
+        this.salarioFinal = d;
     }
     
-    //BÔNUS TOTAL
-    public double getBonusTotal() {
-        this.bonusTotal = this.getBonusPadrao()+this.getBonusFaltas()+this.getBonusTempoServico()+this.getBonusFuncionarioMes();
-        return this.bonusTotal;
+    // BONUS 
+    public double getBonusAbsoluto() {
+        return this.bonusAbsoluto;
+    }
+    
+    public void setBonus() {
+        double bRelativo = this.getBonusPadrao()+this.getBonusFaltas()+this.getBonusTempoServico()+this.getBonusFuncionarioMes();
+        double bAbsoluto = this.getSalarioBase() * bRelativo;
+        this.bonusAbsoluto = bAbsoluto;
+        this.bonusRelativo = bRelativo;
+    }
+    
+    public double getBonusRelativo() {
+        return bonusRelativo;
     }
 }

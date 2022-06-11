@@ -103,3 +103,7 @@
 2022-06-11 10:08:31 INFO  FuncionarioCollection:22 - Novo funcionário: Gabriel
 2022-06-11 10:08:57 INFO  FuncionarioCollection:22 - Novo funcionário: Gabriel
 2022-06-11 10:09:03 INFO  FuncionarioCollection:22 - Novo funcionário: Danilo
+2022-06-11 13:52:27 INFO  FuncionarioCollection:26 - Novo funcionário: Gabriel
+2022-06-11 13:52:27 INFO  FuncionarioCollection:26 - Novo funcionário: Danilo
+2022-06-11 13:52:27 INFO  FuncionarioCollection:38 - Excluindo funcionário: Gabriel
+2022-06-11 13:52:27 INFO  FuncionarioCollection:51 - Funcionario Daniloalterado

@@ -1,13 +1,17 @@
 package projetos.sistema_funcionario.model;
+
 import projetos.sistema_funcionario.salario.Salario;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class FuncionarioCollection {
-    private List<Funcionario> funcionarios;
     private static final Logger LOGGER = LoggerFactory.getLogger(FuncionarioCollection.class);
+
+    private List<Funcionario> funcionarios;
     
     public FuncionarioCollection() {
         this.setFuncionarios(new ArrayList<Funcionario>());
@@ -38,6 +42,7 @@ public class FuncionarioCollection {
         }
     }
     
+    
     public void modificar (Funcionario func, String tipoModificacao, String novoValor) {
         try {
             if (!possuiFuncionario(func)) {
@@ -66,13 +71,49 @@ public class FuncionarioCollection {
                 
                 funcionarios.set(funcionarios.indexOf(func), auxFunc);
             }
+            
+            // 
+            if(tipoModificacao.equals("faltas")) {
+                int novoValor_Int = Integer.parseInt(novoValor);
+                Funcionario auxFunc = func;
+                auxFunc.getSalario().setFaltas(novoValor_Int);
+
+                funcionarios.set(funcionarios.indexOf(func), auxFunc);
+            }
+            
+            if(tipoModificacao.equals("funcionarioDoMes")) {
+                boolean novoValor_Bool = Boolean.parseBoolean(novoValor);
+                Funcionario auxFunc = func;
+                auxFunc.getSalario().setFuncionarioMes(novoValor_Bool);
+
+                funcionarios.set(funcionarios.indexOf(func), auxFunc);
+            }
+            
+            if(tipoModificacao.equals("tempoServico")) {
+                int novoValor_Int = Integer.parseInt(novoValor);
+                Funcionario auxFunc = func;
+                auxFunc.getSalario().setTempoServico(novoValor_Int);
+
+                funcionarios.set(funcionarios.indexOf(func), auxFunc);
+            }
+            
+            if(tipoModificacao.equals("tipoBonusPadrao")) {
+                Funcionario auxFunc = func;
+                auxFunc.getSalario().setTipoBonusPadrao(novoValor);
+
+                funcionarios.set(funcionarios.indexOf(func), auxFunc);
+            }
+            
+            if(tipoModificacao.equals("salarioBase")) {
+                double novoValor_Double = Double.parseDouble(novoValor);
+                Funcionario auxFunc = func;
+                auxFunc.getSalario().setSalarioBase(novoValor_Double);
+
+                funcionarios.set(funcionarios.indexOf(func), auxFunc);
+            }
         } catch(Exception e) {
             LOGGER.info("Erro: " + e);
         }
-    }
-    
-    public void visualizar(Funcionario func) {
-        
     }
     
     public void listar() {
@@ -95,17 +136,20 @@ public class FuncionarioCollection {
     public Funcionario getFuncionario(Funcionario func) {
         Funcionario retornoFuncionario = new Funcionario("Danilo", "Programador Jr", 24, new Salario("generoso", 5, 3, true, 1000));
         boolean achouFuncionario = false;
-        for (Funcionario funcs : funcionarios) {
-            if (func.toString().equals(funcs.toString())) {
-                retornoFuncionario = funcs;
-                achouFuncionario = true;
+        try {
+            for (Funcionario funcs : funcionarios) {
+                if (func.toString().equals(funcs.toString())) {
+                    retornoFuncionario = funcs;
+                    achouFuncionario = true;
+                }
             }
-        }
-        if (!achouFuncionario) {
-            throw new RuntimeException("Funcionario não existente");
-        } else {
-            return retornoFuncionario;
-        }
+            if (!achouFuncionario) {
+                throw new RuntimeException("Funcionario não existente");
+            }
+        } catch(Exception e) {
+            LOGGER.info("Erro: " + e);
+        } 
+        return retornoFuncionario;
     }
     
     public List<Funcionario> getFuncionarios() {
