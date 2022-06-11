@@ -2,19 +2,6 @@
     Sistema de gestão de funcionários
 </h1>
 
-<p align="center">
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/gabrielnama2/sistema_funcionario">
-
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/gabrielnama2/sistema_funcionario">
-  
-  <a href="https://img.shields.io/github/repo-size/gabrielnama2/sistema_funcionario/commits/master">
-    <img alt="Repository size" src="https://img.shields.io/github/repo-size/gabrielnama2/sistema_funcionario">
-  </a>
-  
-  <img alt="Repository forks" src="https://img.shields.io/github/forks/gabrielnama2/sistema_funcionario">
-  
-  <img alt="Repository stars" src="https://img.shields.io/github/stars/gabrielnama2/sistema_funcionario">
-</p>
 
 <h4 align="center">
   Trabalho desenvolvido para a disciplina de Projetos de Sistemas de Software.
