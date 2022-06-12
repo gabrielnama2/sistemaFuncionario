@@ -1,6 +1,7 @@
 package projetos.sistema_funcionario.dao;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -25,9 +26,31 @@ public class DAO {
         this.caminho = Paths.get(System.getProperty("user.dir") + "/src/main/java/projetos/sistema_funcionario/dao/Arquivo.txt");
     }
     
+    public void resetaArquivo() {
+        try {
+            File file = new File(System.getProperty("user.dir") + "/src/main/java/projetos/sistema_funcionario/dao/Arquivo.txt");
+            PrintWriter writer = new PrintWriter(file);
+            writer.print("");
+            writer.close();
+        } catch(Exception e) {
+            LOGGER.info("Erro ao ler arquivo: " + e);
+            JOptionPane.showMessageDialog(null, "Erro ao ler arquivo: " + e);
+        }
+    }
+    
+    // salva todos os funcionarios
+    public void salvarFuncionarios(List<Funcionario> funcs) {
+        System.out.println("foi");
+        resetaArquivo();
+        for (Funcionario f: funcs) {
+            this.salvarFuncionario(f);
+        }
+        
+    }
+    
+    // salva um funcionário
     public void salvarFuncionario(Funcionario funcionario) {
         try{
-            // Lê e escreve no arquivo
             String textoEscrita = funcionario.toString();
             byte[] textoLeitura = Files.readAllBytes(caminho);
             byte[] textoEmByte = textoEscrita.getBytes();
@@ -41,6 +64,7 @@ public class DAO {
         }
     }
     
+    // pega a lista de funcionários
     public List<Funcionario> getFuncionarios() {
         try {
             if (!Files.isReadable(caminho)) {
@@ -66,6 +90,7 @@ public class DAO {
         return new ArrayList<Funcionario>();
     }
     
+    // transforma a string de um funcionário em uma instância
     public Funcionario leituraToFuncionario(String s) {
         String nome = s.substring(s.indexOf("Nome: "), s.indexOf("\n" + "Cargo: ")).split("Nome: ")[1];
         String cargo = s.substring(s.indexOf("Cargo: "), s.indexOf("\n" + "Idade: ")).split("Cargo: ")[1];

@@ -14,7 +14,10 @@ public class TelaManterFuncionarioPresenter {
         
         this.view.getCancelar().addActionListener((e) -> {
             this.view.setVisible(false);
-            new FuncionarioCollection().listar();
+            
+            FuncionarioCollection funcionarios = new FuncionarioCollection();
+            Funcionario Danilo = funcionarios.getFuncionarioByName("Danilo");
+            funcionarios.modificar(Danilo, "faltas", "2");
         });
         
         this.view.getSalvar().addActionListener((e) -> {

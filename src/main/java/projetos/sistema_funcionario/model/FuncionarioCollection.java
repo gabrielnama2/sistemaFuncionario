@@ -12,7 +12,7 @@ public class FuncionarioCollection {
     private List<Funcionario> funcionarios;
     
     public FuncionarioCollection() {
-        this.setFuncionarios(new DAO().getFuncionarios());
+        this.funcionarios = new DAO().getFuncionarios();
     }
     
     // CRUD
@@ -23,6 +23,7 @@ public class FuncionarioCollection {
             }
             LOGGER.info("Novo funcionário: " + func.getNome());
             funcionarios.add(func);
+            this.setFuncionarios(funcionarios);
         } catch(Exception e) {
             LOGGER.info("Erro: " + e);
         }
@@ -35,6 +36,7 @@ public class FuncionarioCollection {
             }
             LOGGER.info("Excluindo funcionário: " + func.getNome());
             funcionarios.remove(func);
+            this.setFuncionarios(funcionarios);
         } catch(Exception e) {
             LOGGER.info("Erro: " + e);
         }
@@ -54,6 +56,7 @@ public class FuncionarioCollection {
                 auxFunc.setIdade(novoValor_Int);
 
                 funcionarios.set(funcionarios.indexOf(func), auxFunc);
+                this.setFuncionarios(funcionarios);
             }
             
             if(tipoModificacao.equals("nome")) {
@@ -61,6 +64,7 @@ public class FuncionarioCollection {
                 auxFunc.setNome(novoValor);
                 
                 funcionarios.set(funcionarios.indexOf(func), auxFunc);
+                this.setFuncionarios(funcionarios);
             }
             
             if(tipoModificacao.equals("cargo")) {
@@ -68,6 +72,7 @@ public class FuncionarioCollection {
                 auxFunc.setCargo(novoValor);
                 
                 funcionarios.set(funcionarios.indexOf(func), auxFunc);
+                this.setFuncionarios(funcionarios);
             }
             
             // 
@@ -77,6 +82,7 @@ public class FuncionarioCollection {
                 auxFunc.getSalario().setFaltas(novoValor_Int);
 
                 funcionarios.set(funcionarios.indexOf(func), auxFunc);
+                this.setFuncionarios(funcionarios);
             }
             
             if(tipoModificacao.equals("funcionarioDoMes")) {
@@ -85,6 +91,7 @@ public class FuncionarioCollection {
                 auxFunc.getSalario().setFuncionarioMes(novoValor_Bool);
 
                 funcionarios.set(funcionarios.indexOf(func), auxFunc);
+                this.setFuncionarios(funcionarios);
             }
             
             if(tipoModificacao.equals("tempoServico")) {
@@ -93,6 +100,7 @@ public class FuncionarioCollection {
                 auxFunc.getSalario().setTempoServico(novoValor_Int);
 
                 funcionarios.set(funcionarios.indexOf(func), auxFunc);
+                this.setFuncionarios(funcionarios);
             }
             
             if(tipoModificacao.equals("tipoBonusPadrao")) {
@@ -100,6 +108,7 @@ public class FuncionarioCollection {
                 auxFunc.getSalario().setTipoBonusPadrao(novoValor);
 
                 funcionarios.set(funcionarios.indexOf(func), auxFunc);
+                this.setFuncionarios(funcionarios);
             }
             
             if(tipoModificacao.equals("salarioBase")) {
@@ -108,6 +117,7 @@ public class FuncionarioCollection {
                 auxFunc.getSalario().setSalarioBase(novoValor_Double);
 
                 funcionarios.set(funcionarios.indexOf(func), auxFunc);
+                this.setFuncionarios(funcionarios);
             }
         } catch(Exception e) {
             LOGGER.info("Erro: " + e);
@@ -131,6 +141,25 @@ public class FuncionarioCollection {
     }
     
     // gets e sets
+    public Funcionario getFuncionarioByName(String name) {
+        Funcionario retornoFuncionario = new Funcionario("Danilo", "Programador Jr", 24, new Salario("generoso", 5, 3, true, 1000));
+        boolean achouFuncionario = false;
+        try {
+            for (Funcionario funcs : funcionarios) {
+                if (name.equals(funcs.getNome())) {
+                    retornoFuncionario = funcs;
+                    achouFuncionario = true;
+                }
+            }
+            if (!achouFuncionario) {
+                throw new RuntimeException("Funcionario não existente");
+            }
+        } catch(Exception e) {
+            LOGGER.info("Erro: " + e);
+        } 
+        return retornoFuncionario;
+    }
+    
     public Funcionario getFuncionario(Funcionario func) {
         Funcionario retornoFuncionario = new Funcionario("Danilo", "Programador Jr", 24, new Salario("generoso", 5, 3, true, 1000));
         boolean achouFuncionario = false;
@@ -155,6 +184,8 @@ public class FuncionarioCollection {
     }
     
     public void setFuncionarios(List<Funcionario> funcs) {
+        new DAO().salvarFuncionarios(funcs);
+        
         this.funcionarios = funcs;
     }
 }

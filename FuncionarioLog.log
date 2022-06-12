@@ -157,3 +157,8 @@
 2022-06-12 16:22:21 INFO  Funcionario:62 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
 2022-06-12 17:02:56 INFO  Funcionario:62 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
 2022-06-12 17:04:20 INFO  Funcionario:62 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+2022-06-12 17:38:59 INFO  FuncionarioCollection:51 - Funcionario Daniloalterado
+2022-06-12 18:09:50 INFO  FuncionarioCollection:51 - Funcionario Daniloalterado
+2022-06-12 18:10:36 INFO  FuncionarioCollection:51 - Funcionario Daniloalterado
+2022-06-12 18:11:30 INFO  FuncionarioCollection:51 - Funcionario Daniloalterado
+2022-06-12 18:12:21 INFO  FuncionarioCollection:51 - Funcionario Daniloalterado
