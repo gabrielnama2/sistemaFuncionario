@@ -18,17 +18,16 @@ public class TelaManterFuncionarioPresenter {
         this.view.getSalvar().addActionListener((e) -> {
             String nome = this.view.getNome();
             String cargo = this.view.getCargo();
+            
             int idade = this.view.getIdade();
             double salarioBase = this.view.getSalario();
-            String tipoBonus = this.view.getTipoBonus();
             
+            String tipoBonus = this.view.getTipoBonus();
             Salario salario = new Salario(tipoBonus, 0, 0, false, salarioBase);
             Funcionario funcionario = new Funcionario(nome, cargo, idade, salario);
             
             FuncionarioCollection funcionarios = new FuncionarioCollection();
             funcionarios.incluir(funcionario);
-            
-            funcionarios.listar();
         });
         
         this.view.setVisible(true);

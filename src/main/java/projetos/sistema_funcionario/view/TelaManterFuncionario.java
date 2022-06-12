@@ -65,7 +65,7 @@ public class TelaManterFuncionario extends javax.swing.JFrame {
 
         jSalvar.setText("Salvar");
 
-        jCancelar.setText("Cancelar");
+        jCancelar.setText("Fechar");
 
         jLabel1.setText("Salário: R$");
 

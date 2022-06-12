@@ -1,34 +1,23 @@
 package projetos.sistema_funcionario.presenter;
 
-import projetos.sistema_funcionario.model.Funcionario;
-import projetos.sistema_funcionario.model.FuncionarioCollection;
-import projetos.sistema_funcionario.salario.Salario;
-import projetos.sistema_funcionario.view.TelaManterFuncionario;
+import projetos.sistema_funcionario.view.TelaPrincipal;
 
 public class TelaPrincipalPresenter {
-    private TelaManterFuncionario view; 
+    private TelaPrincipal view; 
     
     public TelaPrincipalPresenter() {
-        this.view = new TelaManterFuncionario();
+        this.view = new TelaPrincipal();
         
-        this.view.getCancelar().addActionListener((e) -> {
+        this.view.getBotaoAcessarFuncionarios().addActionListener((e) -> {
             this.view.setVisible(false);
+            
+            new TelaBuscarFuncionarioPresenter().show();
         });
         
-        this.view.getSalvar().addActionListener((e) -> {
-            String nome = this.view.getNome();
-            String cargo = this.view.getCargo();
-            int idade = this.view.getIdade();
-            double salarioBase = this.view.getSalario();
-            String tipoBonus = this.view.getTipoBonus();
+        this.view.getBotaoAcessarSalarios().addActionListener((e) -> {
+            this.view.setVisible(false);
             
-            Salario salario = new Salario(tipoBonus, 0, 0, false, salarioBase);
-            Funcionario funcionario = new Funcionario(nome, cargo, idade, salario);
-            
-            FuncionarioCollection funcionarios = new FuncionarioCollection();
-            funcionarios.incluir(funcionario);
-            
-            funcionarios.listar();
+            new TelaCalcularSalarioPresenter().show();
         });
         
         this.view.setVisible(true);

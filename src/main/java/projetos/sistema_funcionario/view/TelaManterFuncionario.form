@@ -184,7 +184,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jCancelar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cancelar"/>
+            <Property name="text" type="java.lang.String" value="Fechar"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">

@@ -42,6 +42,6 @@ public class Sistema_funcionario {
     
 
     public static void main(String[] args) throws IOException {
-        new TelaManterFuncionarioPresenter();
+        // seeds();
     }
 }

@@ -4,6 +4,8 @@
  */
 package projetos.sistema_funcionario.view;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author Gabriel Namã
@@ -126,6 +128,11 @@ public class TelaCalcularSalario extends javax.swing.JFrame {
         botaoCalcularSalario.setText("Calcular");
 
         botaoCancelar.setText("Cancelar");
+        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,6 +169,10 @@ public class TelaCalcularSalario extends javax.swing.JFrame {
     private void campoTextoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTextoNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoTextoNomeActionPerformed
+
+    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
+            // TODO add your handling code here:
+    }//GEN-LAST:event_botaoCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,6 +222,10 @@ public class TelaCalcularSalario extends javax.swing.JFrame {
                 new TelaCalcularSalario().setVisible(true);
             }
         });
+    }
+    
+    public JButton getCancelar() {
+        return botaoCancelar;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,6 +4,8 @@
  */
 package projetos.sistema_funcionario.view;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author Gabriel Namã
@@ -175,7 +177,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    public JButton getBotaoAcessarFuncionarios() {
+        return botaoAcessarFuncionarios;
+    }
+    
+    public JButton getBotaoAcessarSalarios() {
+        return botaoAcessarSalarios;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoAcessarFuncionarios;
     private javax.swing.JButton botaoAcessarSalarios;

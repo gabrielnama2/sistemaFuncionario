@@ -57,10 +57,10 @@ public class Salario {
     @Override
     public String toString() {
         return "\n\nBONUS DO FUNCIONARIO\n" +
-            "\nBonus padrão: " + tipoBonusPadrao + " = " + bonusPadrao + "%" +
-            "\nFaltas: " + faltas + " = " + bonusFaltas + "%" +
-            "\nTempo de serviço: " + tempoServico + " = " + bonusTempoServico + "%" +
-            "\nFuncionario do mes: " + funcionarioMes + " = " + bonusFuncionarioMes + "%" +
+            "\nBonus padrão: " + tipoBonusPadrao + " = " + bonusPadrao*100 + "%" +
+            "\nFaltas: " + faltas + " = " + bonusFaltas*100 + "%" +
+            "\nTempo de serviço: " + tempoServico + " = " + bonusTempoServico*100 + "%" +
+            "\nFuncionario do mes: " + funcionarioMes + " = " + bonusFuncionarioMes*100 + "%" +
             "\nSalario final: " + salarioFinal +
             "\n\nData: " + LocalDate.now() +
             "\n\n------------------------------------------ //";
