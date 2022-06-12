@@ -1,7 +1,7 @@
 package projetos.sistema_funcionario.presenter;
 
+import projetos.sistema_funcionario.dao.DAO;
 import projetos.sistema_funcionario.model.Funcionario;
-import projetos.sistema_funcionario.model.FuncionarioCollection;
 import projetos.sistema_funcionario.model.Salario;
 import projetos.sistema_funcionario.view.TelaManterFuncionario;
 
@@ -26,8 +26,7 @@ public class TelaManterFuncionarioPresenter {
             Salario salario = new Salario(tipoBonus, 0, 0, false, salarioBase);
             Funcionario funcionario = new Funcionario(nome, cargo, idade, salario);
             
-            FuncionarioCollection funcionarios = new FuncionarioCollection();
-            funcionarios.incluir(funcionario);
+            new DAO().salvarFuncionario(funcionario);
         });
         
         this.view.setVisible(true);

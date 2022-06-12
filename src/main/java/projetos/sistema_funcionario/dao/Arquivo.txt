@@ -1,0 +1,22 @@
+
+
+// ------------------------------------------
+
+DADOS DO FUNCIONARIO
+
+Nome: Danilo
+Cargo: Programador
+Idade: 23
+Salario: 2600.0
+
+BONUS DO FUNCIONARIO
+
+Bonus padrão: normal = 5.0%
+Faltas: 0 = 10.0%
+Tempo de serviço: 0 = 0.0%
+Funcionario do mes: false = 0.0%
+Salario final: 2990.0
+
+Data: 2022-06-12
+
+------------------------------------------ //
