@@ -136,3 +136,24 @@
 2022-06-12 11:31:42 INFO  FuncionarioCollection:26 - Novo funcionário: Gabriel
 2022-06-12 11:31:42 INFO  FuncionarioCollection:26 - Novo funcionário: Gabriel
 2022-06-12 11:47:45 INFO  FuncionarioCollection:25 - Novo funcionário: Danilo
+2022-06-12 13:53:50 INFO  Funcionario:63 - Erro ao ler funcionário no arquivo: java.lang.RuntimeException: Não foi possível ler o arquivo
+2022-06-12 13:53:55 INFO  Funcionario:63 - Erro ao ler funcionário no arquivo: java.lang.RuntimeException: Não foi possível ler o arquivo
+2022-06-12 13:53:55 INFO  Funcionario:63 - Erro ao ler funcionário no arquivo: java.lang.RuntimeException: Não foi possível ler o arquivo
+2022-06-12 13:56:03 INFO  Funcionario:62 - Erro ao ler funcionário no arquivo: java.lang.RuntimeException: Não foi possível ler o arquivo
+2022-06-12 13:57:42 INFO  Funcionario:61 - Erro ao ler funcionário no arquivo: java.lang.NullPointerException
+2022-06-12 15:08:19 INFO  Funcionario:53 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -103
+2022-06-12 15:09:26 INFO  Funcionario:53 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -103
+2022-06-12 15:10:45 INFO  Funcionario:53 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -113
+2022-06-12 15:47:42 INFO  Funcionario:61 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -206
+2022-06-12 15:49:24 INFO  Funcionario:63 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -206
+2022-06-12 15:56:43 INFO  Funcionario:62 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -206
+2022-06-12 15:57:15 INFO  Funcionario:62 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -206
+2022-06-12 15:57:47 INFO  Funcionario:62 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -206
+2022-06-12 16:00:39 INFO  Funcionario:63 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -205
+2022-06-12 16:04:31 INFO  Funcionario:63 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+2022-06-12 16:06:02 INFO  Funcionario:67 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+2022-06-12 16:12:23 INFO  Funcionario:61 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+2022-06-12 16:20:31 INFO  Funcionario:62 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+2022-06-12 16:22:21 INFO  Funcionario:62 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+2022-06-12 17:02:56 INFO  Funcionario:62 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+2022-06-12 17:04:20 INFO  Funcionario:62 - Erro: java.lang.StringIndexOutOfBoundsException: String index out of range: -1

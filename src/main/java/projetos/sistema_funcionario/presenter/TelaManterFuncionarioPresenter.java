@@ -2,6 +2,7 @@ package projetos.sistema_funcionario.presenter;
 
 import projetos.sistema_funcionario.dao.DAO;
 import projetos.sistema_funcionario.model.Funcionario;
+import projetos.sistema_funcionario.model.FuncionarioCollection;
 import projetos.sistema_funcionario.model.Salario;
 import projetos.sistema_funcionario.view.TelaManterFuncionario;
 
@@ -13,6 +14,7 @@ public class TelaManterFuncionarioPresenter {
         
         this.view.getCancelar().addActionListener((e) -> {
             this.view.setVisible(false);
+            new FuncionarioCollection().listar();
         });
         
         this.view.getSalvar().addActionListener((e) -> {

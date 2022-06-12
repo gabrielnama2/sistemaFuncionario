@@ -39,7 +39,6 @@ public class Salario {
         this.setTempoServico(tempoServico);
         this.setFuncionarioMes(funcionarioMes);
         this.setSalarioBase(salarioBase);
-        this.calcularSalario();
     }
     
     public void calcularSalario(){
@@ -57,13 +56,11 @@ public class Salario {
     @Override
     public String toString() {
         return "\n\nBONUS DO FUNCIONARIO\n" +
-            "\nBonus padrão: " + tipoBonusPadrao + " = " + bonusPadrao*100 + "%" +
-            "\nFaltas: " + faltas + " = " + bonusFaltas*100 + "%" +
-            "\nTempo de serviço: " + tempoServico + " = " + bonusTempoServico*100 + "%" +
-            "\nFuncionario do mes: " + funcionarioMes + " = " + bonusFuncionarioMes*100 + "%" +
-            "\nSalario final: " + salarioFinal +
-            "\n\nData: " + LocalDate.now() +
-            "\n\n------------------------------------------ //";
+            "\nBonus padrão: " + tipoBonusPadrao +
+            "\nFaltas: " + faltas  +
+            "\nTempo de serviço: " + tempoServico + 
+            "\nFuncionario do mes: " + funcionarioMes +
+            "\n\n------------------------------------------ //\n" + "@split\n";
     }
     
     // HISTORICO

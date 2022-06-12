@@ -1,11 +1,10 @@
 package projetos.sistema_funcionario.model;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import projetos.sistema_funcionario.dao.DAO;
 
 public class FuncionarioCollection {
     private static final Logger LOGGER = LoggerFactory.getLogger(FuncionarioCollection.class);
@@ -13,7 +12,7 @@ public class FuncionarioCollection {
     private List<Funcionario> funcionarios;
     
     public FuncionarioCollection() {
-        this.setFuncionarios(new ArrayList<Funcionario>());
+        this.setFuncionarios(new DAO().getFuncionarios());
     }
     
     // CRUD
