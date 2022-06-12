@@ -1,6 +1,6 @@
-package projetos.sistema_funcionario.salario;
+package projetos.sistema_funcionario.model;
 
-import projetos.sistema_funcionario.salario.Historico;
+import projetos.sistema_funcionario.model.Historico;
 
 import java.time.LocalDate; 
 import java.util.ArrayList;

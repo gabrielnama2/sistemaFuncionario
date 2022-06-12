@@ -2,10 +2,10 @@ package projetos.sistema_funcionario;
 
 import java.io.IOException;
 
-import projetos.sistema_funcionario.salario.Salario;
+import projetos.sistema_funcionario.model.Salario;
 
 import projetos.sistema_funcionario.model.*;
-import projetos.sistema_funcionario.presenter.Arquivo;
+import projetos.sistema_funcionario.persistencia_dados.Arquivo;
 import projetos.sistema_funcionario.presenter.TelaManterFuncionarioPresenter;
 
 

@@ -2,7 +2,6 @@ package projetos.sistema_funcionario.model;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import projetos.sistema_funcionario.salario.Salario;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

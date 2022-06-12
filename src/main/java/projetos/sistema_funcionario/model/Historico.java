@@ -1,4 +1,4 @@
-package projetos.sistema_funcionario.salario;
+package projetos.sistema_funcionario.model;
 import java.time.LocalDate; 
 
 // HistoricoCollection

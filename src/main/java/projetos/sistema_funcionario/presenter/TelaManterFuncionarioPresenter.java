@@ -2,7 +2,7 @@ package projetos.sistema_funcionario.presenter;
 
 import projetos.sistema_funcionario.model.Funcionario;
 import projetos.sistema_funcionario.model.FuncionarioCollection;
-import projetos.sistema_funcionario.salario.Salario;
+import projetos.sistema_funcionario.model.Salario;
 import projetos.sistema_funcionario.view.TelaManterFuncionario;
 
 public class TelaManterFuncionarioPresenter {

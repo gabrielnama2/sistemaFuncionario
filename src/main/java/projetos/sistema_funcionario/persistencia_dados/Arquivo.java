@@ -1,4 +1,4 @@
-package projetos.sistema_funcionario.presenter;
+package projetos.sistema_funcionario.persistencia_dados;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,7 +19,7 @@ public class Arquivo {
     
     public void salvar(FuncionarioCollection funcionario) throws IOException{
         String directoryName = System.getProperty("user.dir");
-        Path caminho = Paths.get(directoryName + "/src/main/java/projetos/sistema_funcionario/presenter/Arquivo.txt");
+        Path caminho = Paths.get(directoryName + "/src/main/java/projetos/sistema_funcionario/persistencia_dados/Arquivo.txt");
         
         // Lê e escreve no arquivo
         String textoEscrita = funcionario.toString();

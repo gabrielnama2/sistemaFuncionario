@@ -1,6 +1,5 @@
 package projetos.sistema_funcionario.model;
 
-import projetos.sistema_funcionario.salario.Salario;
 
 import java.util.ArrayList;
 import java.util.List;
