@@ -162,3 +162,9 @@
 2022-06-12 18:10:36 INFO  FuncionarioCollection:51 - Funcionario Daniloalterado
 2022-06-12 18:11:30 INFO  FuncionarioCollection:51 - Funcionario Daniloalterado
 2022-06-12 18:12:21 INFO  FuncionarioCollection:51 - Funcionario Daniloalterado
+2022-06-12 20:37:52 INFO  FuncionarioCollection:158 - Erro: java.lang.RuntimeException: Funcionario não existente
+2022-06-12 20:37:52 INFO  FuncionarioCollection:123 - Erro: java.lang.RuntimeException: Funcionario não existente
+2022-06-12 20:43:02 INFO  FuncionarioCollection:158 - Erro: java.lang.RuntimeException: Funcionario não existente
+2022-06-12 20:43:02 INFO  FuncionarioCollection:123 - Erro: java.lang.RuntimeException: Funcionario não existente
+2022-06-12 20:43:08 INFO  FuncionarioCollection:158 - Erro: java.lang.RuntimeException: Funcionario não existente
+2022-06-12 20:43:08 INFO  FuncionarioCollection:123 - Erro: java.lang.RuntimeException: Funcionario não existente
