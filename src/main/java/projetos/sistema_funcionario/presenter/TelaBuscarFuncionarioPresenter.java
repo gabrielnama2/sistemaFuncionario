@@ -20,6 +20,10 @@ public class TelaBuscarFuncionarioPresenter {
         this.tabela = this.view.getTabela();
         this.atualizaTabela();
         
+        this.view.getBotaoBuscarFuncionario().addActionListener((e) -> {
+            this.pesquisar();
+        });
+        
         this.view.getCancelar().addActionListener((e) -> {
             this.view.setVisible(false);
             new TelaPrincipalPresenter();
@@ -34,16 +38,37 @@ public class TelaBuscarFuncionarioPresenter {
        this.view.setVisible(true);
     }
     
-    public void atualizaTabela() {
+    private void pesquisar() {
+        if(this.view.getValorPesquisa().isEmpty()) {
+            atualizaTabela();
+            return;
+        } 
+        
         try {
             DefaultTableModel modelo = (DefaultTableModel) this.tabela.getModel();
             modelo.setNumRows(0);
 
-            int id = 0;
-            for(Funcionario func: new FuncionarioCollection().getFuncionarios()) {
-                id++;
+            for(Funcionario func: new FuncionarioCollection().getFuncionariosByName(this.view.getValorPesquisa())) {
                 modelo.addRow(new Object[]{
-                    Integer.toString(id),
+                    func.getNome(),
+                    func.getIdade(),
+                    func.getCargo(),
+                    String.format("%.2f", func.getSalario().getSalarioBase())
+                });
+            }
+        } catch(RuntimeException e) {
+            LOGGER.info("Erro ao atualizar tabela: " + e);
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar tabela: " + e);
+        }
+    }
+    
+    private void atualizaTabela() {
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) this.tabela.getModel();
+            modelo.setNumRows(0);
+
+            for(Funcionario func: new FuncionarioCollection().getFuncionarios()) {
+                modelo.addRow(new Object[]{
                     func.getNome(),
                     func.getIdade(),
                     func.getCargo(),

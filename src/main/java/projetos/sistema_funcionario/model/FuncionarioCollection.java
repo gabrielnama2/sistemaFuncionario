@@ -1,5 +1,6 @@
 package projetos.sistema_funcionario.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -141,23 +142,21 @@ public class FuncionarioCollection {
     }
     
     // gets e sets
-    public Funcionario getFuncionarioByName(String name) {
-        Funcionario retornoFuncionario = new Funcionario("Danilo", "Programador Jr", 24, new Salario("generoso", 5, 3, true, 1000));
+    public List<Funcionario> getFuncionariosByName(String name) {
+        List<Funcionario> retornoFuncionarios = new ArrayList<Funcionario>();
         boolean achouFuncionario = false;
-        try {
-            for (Funcionario funcs : funcionarios) {
-                if (name.equals(funcs.getNome())) {
-                    retornoFuncionario = funcs;
-                    achouFuncionario = true;
-                }
+
+        for (Funcionario funcs : funcionarios) {
+            if (name.equals(funcs.getNome())) {
+                retornoFuncionarios.add(funcs);
+                achouFuncionario = true;
             }
-            if (!achouFuncionario) {
-                throw new RuntimeException("Funcionario não existente");
-            }
-        } catch(Exception e) {
-            LOGGER.info("Erro: " + e);
-        } 
-        return retornoFuncionario;
+        }
+        if (!achouFuncionario) {
+            return funcionarios;
+        } else {
+            return retornoFuncionarios;
+        }
     }
     
     public Funcionario getFuncionario(Funcionario func) {

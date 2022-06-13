@@ -22,7 +22,7 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
         painelBuscarFuncionario = new javax.swing.JPanel();
         tituloJanela = new javax.swing.JLabel();
         labelNome = new javax.swing.JLabel();
-        campoTextoNome = new javax.swing.JTextField();
+        valorPesquisa = new javax.swing.JTextField();
         botaoBuscarFuncionario = new javax.swing.JButton();
         tituloJanela1 = new javax.swing.JLabel();
         botaoCancelar = new javax.swing.JButton();
@@ -41,9 +41,9 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
 
         labelNome.setText("Nome:");
 
-        campoTextoNome.addActionListener(new java.awt.event.ActionListener() {
+        valorPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoTextoNomeActionPerformed(evt);
+                valorPesquisaActionPerformed(evt);
             }
         });
 
@@ -78,13 +78,10 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
 
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane2.setViewportView(Tabela);
@@ -112,7 +109,7 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
                         .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
                             .addComponent(labelNome)
                             .addGap(18, 18, 18)
-                            .addComponent(campoTextoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(valorPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(30, 30, 30)
                             .addComponent(botaoBuscarFuncionario)))
                     .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
@@ -128,7 +125,7 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNome)
-                    .addComponent(campoTextoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valorPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoBuscarFuncionario))
                 .addGap(21, 21, 21)
                 .addComponent(tituloJanela1)
@@ -167,9 +164,9 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoBuscarFuncionarioActionPerformed
 
-    private void campoTextoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTextoNomeActionPerformed
+    private void valorPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorPesquisaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoTextoNomeActionPerformed
+    }//GEN-LAST:event_valorPesquisaActionPerformed
 
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
         // TODO add your handling code here:
@@ -202,6 +199,14 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
     public JTable getTabela() {
         return this.Tabela;
     }
+    
+    public String getValorPesquisa() {
+        return this.valorPesquisa.getText();
+    }
+    
+    public JButton getBotaoBuscarFuncionario() {
+        return this.botaoBuscarFuncionario;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -210,12 +215,12 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton botaoCancelar;
     private javax.swing.JButton botaoEditar;
     private javax.swing.JButton botaoExcluir;
-    private javax.swing.JTextField campoTextoNome;
     private javax.swing.JButton jNovoCadastro;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelNome;
     private javax.swing.JPanel painelBuscarFuncionario;
     private javax.swing.JLabel tituloJanela;
     private javax.swing.JLabel tituloJanela1;
+    private javax.swing.JTextField valorPesquisa;
     // End of variables declaration//GEN-END:variables
 }
