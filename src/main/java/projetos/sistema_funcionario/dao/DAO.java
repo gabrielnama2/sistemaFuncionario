@@ -40,7 +40,6 @@ public class DAO {
     
     // salva todos os funcionarios
     public void salvarFuncionarios(List<Funcionario> funcs) {
-        System.out.println("foi");
         resetaArquivo();
         for (Funcionario f: funcs) {
             this.salvarFuncionario(f);
