@@ -2,6 +2,10 @@
     Sistema de gestão de funcionários
 </h1>
 
+<h5 align="center">
+Trabalho desenvolvido para a disciplina Projetos de Sistemas de Software, ministrada pelo professor Clayton Vieira Fraga Filho.
+</h5>
+
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/gabrielnama2/sistema_funcionario">
 
@@ -15,10 +19,6 @@
   
   <img alt="Repository stars" src="https://img.shields.io/github/stars/gabrielnama2/sistema_funcionario">
 </p>
-
-<h4 align="center">
-  Trabalho desenvolvido para a disciplina de Projetos de Sistemas de Software.
-</h4>
 
 </br>
 
@@ -91,11 +91,12 @@ Um sistema simples de funcionário, com possibilidade de adicionar, remover, mod
 ## :memo: Licença
 Este projeto está sobre a licença MIT. Veja [LICENSE](https://github.com/Danilo-Js/Repo-Searcher/blob/master/LICENSE) para mais informações.
 
+Feito por: Danilo José e Gabriel Namã
+
 ---
 
-#### Feito por: Danilo José e Gabriel Namã
-#### 
-
 <h5 align="center">
-Universidade Federal do Espírito Santo - Campus Alegre | COD_ATIVIDADE = SGF_2022_1
+UFES - Universidade Federal do Espírito Santo. 
+    
+COD_ATIVIDADE = SGF_2022_1
 </h5>
