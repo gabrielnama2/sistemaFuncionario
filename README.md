@@ -52,29 +52,35 @@ projetos.sistema_funcionario.teste.Seeds
 
 O arquivo [Seeds.Java](https://github.com/gabrielnama2/sistema_funcionario/blob/danilo/src/main/java/projetos/sistema_funcionario/test/Seeds.java) possui exemplos de testes
 ```
-FuncionarioCollection funcionarios = new FuncionarioCollection();
+public static void seeds() {
+    DAO arq = new DAO();
+    FuncionarioCollection funcionarios = new FuncionarioCollection();
 
-//  Funcionario 1
-Salario salarioGabriel = new Salario("generoso", 5, 4, true, 1000);
-Funcionario Gabriel = new Funcionario("Gabriel", "Estagiario", 24, salarioGabriel);
+    //  Funcionario 1
+    Salario salarioGabriel = new Salario("generoso", 5, 4, true, 1000);
+    Funcionario Gabriel = new Funcionario("Gabriel", "Estagiario", 24, salarioGabriel);
+    arq.salvarFuncionario(Gabriel);  
 
-// Funcionario 2
-Salario salarioDanilo = new Salario("generoso", 0, 0, false, 1500);
-Funcionario Danilo = new Funcionario("Danilo", "Programador Jr", 24, salarioDanilo);
+    // Funcionario 2
+    Salario salarioDanilo = new Salario("generoso", 0, 0, false, 1500);
+    Funcionario Danilo = new Funcionario("Danilo", "Programador Jr", 24, salarioDanilo);
+    arq.salvarFuncionario(Danilo);  
 
-// CRUD
-funcionarios.incluir(Gabriel);
-funcionarios.incluir(Danilo);
-funcionarios.excluir(Gabriel);
-funcionarios.modificar(Danilo, "faltas", "10"); 
-// "idade", "nome", "cargo", "faltas", "funcionarioDoMes",
-// "tempoServico", "tipoBonusPadrao", "salarioBase"
+    // CRUD
+    funcionarios.incluir(Gabriel);
+    funcionarios.incluir(Danilo);
+    funcionarios.excluir(Gabriel);
+    funcionarios.modificar(Danilo, "faltas", "10"); 
+    // "idade", "nome", "cargo", "faltas", "funcionarioDoMes",
+    // "tempoServico", "tipoBonusPadrao", "salarioBase"
 
-// Salário
-funcionarios.getFuncionario(Danilo).getSalario().calcularSalario();
 
-// Bonus
-funcionarios.getFuncionario(Danilo).getSalario().listaHistorico();
+    // Salário
+    funcionarios.getFuncionario(Danilo).getSalario().calcularSalario();
+
+    // Bonus
+    funcionarios.getFuncionario(Danilo).getSalario().listaHistorico();
+}
 ```
 </br>
 
