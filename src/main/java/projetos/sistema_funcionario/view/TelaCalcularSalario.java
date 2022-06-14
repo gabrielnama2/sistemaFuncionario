@@ -4,6 +4,8 @@
  */
 package projetos.sistema_funcionario.view;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author Gabriel Namã
@@ -100,19 +102,18 @@ public class TelaCalcularSalario extends javax.swing.JFrame {
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
                         .addGap(371, 371, 371)
-                        .addComponent(tituloJanela1)))
+                        .addComponent(tituloJanela1))
+                    .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
+                        .addGap(330, 330, 330)
+                        .addComponent(tituloJanela)))
                 .addContainerGap(157, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelBuscarFuncionarioLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(tituloJanela)
-                .addGap(309, 309, 309))
         );
         painelBuscarFuncionarioLayout.setVerticalGroup(
             painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addGap(54, 54, 54)
                 .addComponent(tituloJanela)
-                .addGap(46, 46, 46)
+                .addGap(44, 44, 44)
                 .addGroup(painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNome)
                     .addComponent(campoTextoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -126,6 +127,11 @@ public class TelaCalcularSalario extends javax.swing.JFrame {
         botaoCalcularSalario.setText("Calcular");
 
         botaoCancelar.setText("Cancelar");
+        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,21 +141,21 @@ public class TelaCalcularSalario extends javax.swing.JFrame {
                 .addComponent(painelBuscarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(141, 141, 141)
-                .addComponent(botaoCalcularSalario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(152, 152, 152)
                 .addComponent(botaoCancelar)
+                .addGap(365, 365, 365)
+                .addComponent(botaoCalcularSalario)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(painelBuscarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoCalcularSalario)
                     .addComponent(botaoCancelar))
-                .addGap(0, 74, Short.MAX_VALUE))
+                .addGap(0, 80, Short.MAX_VALUE))
         );
 
         pack();
@@ -162,6 +168,10 @@ public class TelaCalcularSalario extends javax.swing.JFrame {
     private void campoTextoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTextoNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoTextoNomeActionPerformed
+
+    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
+            // TODO add your handling code here:
+    }//GEN-LAST:event_botaoCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,6 +221,10 @@ public class TelaCalcularSalario extends javax.swing.JFrame {
                 new TelaCalcularSalario().setVisible(true);
             }
         });
+    }
+    
+    public JButton getCancelar() {
+        return botaoCancelar;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

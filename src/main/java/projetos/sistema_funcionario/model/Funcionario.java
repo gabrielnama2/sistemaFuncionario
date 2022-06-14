@@ -1,7 +1,8 @@
 package projetos.sistema_funcionario.model;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import projetos.sistema_funcionario.salario.Salario;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +21,7 @@ public class Funcionario {
     }
     
     public void consultaBonus() {
-        System.out.println(this.getSalario().getBonusTotal());
+        System.out.println(this.getSalario().getBonusAbsoluto());
         LOGGER.info("Bônus consultado: " + this.getNome());
     }
     
@@ -33,7 +34,7 @@ public class Funcionario {
         System.out.println(this.toString());
     }
     
-    @Override
+     @Override
     public String toString() {
         return "\n\n// ------------------------------------------\n" +
                 "\nDADOS DO FUNCIONARIO\n" + 

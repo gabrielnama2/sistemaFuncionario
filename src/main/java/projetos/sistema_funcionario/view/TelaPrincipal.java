@@ -4,6 +4,8 @@
  */
 package projetos.sistema_funcionario.view;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author Gabriel Namã
@@ -33,6 +35,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         labelSalarios = new javax.swing.JLabel();
         botaoAcessarFuncionarios = new javax.swing.JButton();
         botaoAcessarSalarios = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manter funcionários");
@@ -47,54 +52,74 @@ public class TelaPrincipal extends javax.swing.JFrame {
         labelFuncionario.setText("Funcionários:");
 
         labelSalarios.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        labelSalarios.setText("Salários");
+        labelSalarios.setText("Salários:");
 
         botaoAcessarFuncionarios.setText("Acessar");
 
         botaoAcessarSalarios.setText("Acessar");
+
+        jLabel1.setText("Versão do compilador: 11");
+
+        jLabel2.setText("Arquivo de log: FuncionarioLog.log");
+
+        jLabel3.setText("Arquivo de persistência de dados: Arquivo.txt");
 
         javax.swing.GroupLayout painelManterFuncionarioLayout = new javax.swing.GroupLayout(painelManterFuncionario);
         painelManterFuncionario.setLayout(painelManterFuncionarioLayout);
         painelManterFuncionarioLayout.setHorizontalGroup(
             painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelManterFuncionarioLayout.createSequentialGroup()
-                .addGap(299, 299, 299)
                 .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelFuncionario)
-                    .addComponent(botaoAcessarFuncionarios))
-                .addGap(129, 129, 129)
-                .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botaoAcessarSalarios)
-                    .addComponent(labelSalarios))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelManterFuncionarioLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelBoasVindas)
+                        .addGap(115, 115, 115))
+                    .addGroup(painelManterFuncionarioLayout.createSequentialGroup()
+                        .addGap(299, 299, 299)
+                        .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botaoAcessarFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(146, 146, 146)
+                        .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botaoAcessarSalarios)
+                            .addComponent(labelSalarios))
+                        .addGap(0, 1, Short.MAX_VALUE)))
                 .addGap(0, 291, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelManterFuncionarioLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelManterFuncionarioLayout.createSequentialGroup()
-                        .addComponent(tituloJanela)
-                        .addGap(339, 339, 339))
+                        .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelManterFuncionarioLayout.createSequentialGroup()
-                        .addComponent(labelBoasVindas)
-                        .addGap(406, 406, 406))))
+                        .addComponent(tituloJanela)
+                        .addGap(346, 346, 346))))
         );
         painelManterFuncionarioLayout.setVerticalGroup(
             painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelManterFuncionarioLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(63, 63, 63)
                 .addComponent(tituloJanela)
-                .addGap(55, 55, 55)
+                .addGap(48, 48, 48)
                 .addComponent(labelBoasVindas)
                 .addGap(71, 71, 71)
-                .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelManterFuncionarioLayout.createSequentialGroup()
-                        .addComponent(labelFuncionario)
-                        .addGap(30, 30, 30)
-                        .addComponent(botaoAcessarFuncionarios))
-                    .addGroup(painelManterFuncionarioLayout.createSequentialGroup()
-                        .addComponent(labelSalarios)
-                        .addGap(30, 30, 30)
-                        .addComponent(botaoAcessarSalarios)))
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelFuncionario)
+                    .addComponent(labelSalarios))
+                .addGap(30, 30, 30)
+                .addGroup(painelManterFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoAcessarFuncionarios)
+                    .addComponent(botaoAcessarSalarios))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel3)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -103,7 +128,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(painelManterFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,10 +177,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    public JButton getBotaoAcessarFuncionarios() {
+        return botaoAcessarFuncionarios;
+    }
+    
+    public JButton getBotaoAcessarSalarios() {
+        return botaoAcessarSalarios;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoAcessarFuncionarios;
     private javax.swing.JButton botaoAcessarSalarios;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel labelBoasVindas;
     private javax.swing.JLabel labelFuncionario;
     private javax.swing.JLabel labelSalarios;
