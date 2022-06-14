@@ -10,7 +10,7 @@ import projetos.sistema_funcionario.dao.DAO;
 
 public class Seeds {
     
-    public static void seeds() throws IOException {
+    public static void seeds() {
         DAO arq = new DAO();
         FuncionarioCollection funcionarios = new FuncionarioCollection();
         
