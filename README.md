@@ -91,7 +91,7 @@ Um sistema simples de funcionário, com possibilidade de adicionar, remover, mod
 
 Este projeto está sobre a licença MIT. Veja [LICENSE](https://github.com/Danilo-Js/Repo-Searcher/blob/master/LICENSE) para mais informações.
 
-Feito por: Danilo José e Gabriel Namã
+Feito por: Danilo José, Gabriel Namã, Ikaro
 
 ---
 
