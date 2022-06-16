@@ -28,9 +28,9 @@ Trabalho desenvolvido para a disciplina Projetos de Sistemas de Software, minist
   <a href="#memo-licença">Licença</a>
 </p>
 
-
 ## :information_source: Primeiros passos
-1 - Clone este projeto 
+
+1 - Clone este projeto
 
 ```
 Git clone https://github.com/gabrielnama2/sistema_funcionario.git
@@ -51,44 +51,44 @@ projetos.sistema_funcionario.teste.Seeds
 ```
 
 O arquivo [Seeds.Java](https://github.com/gabrielnama2/sistema_funcionario/blob/danilo/src/main/java/projetos/sistema_funcionario/test/Seeds.java) possui exemplos de testes
+
 ```
 public static void seeds() {
-    DAO arq = new DAO();
     FuncionarioCollection funcionarios = new FuncionarioCollection();
 
     //  Funcionario 1
     Salario salarioGabriel = new Salario("generoso", 5, 4, true, 1000);
     Funcionario Gabriel = new Funcionario("Gabriel", "Estagiario", 24, salarioGabriel);
-    arq.salvarFuncionario(Gabriel);  
-
-    // Funcionario 2
-    Salario salarioDanilo = new Salario("generoso", 0, 0, false, 1500);
-    Funcionario Danilo = new Funcionario("Danilo", "Programador Jr", 24, salarioDanilo);
-    arq.salvarFuncionario(Danilo);  
-
-    // CRUD
     funcionarios.incluir(Gabriel);
+
+    //  Funcionario 2
+    Salario salarioDanilo = new Salario("generoso", 5, 4, true, 1000);
+    Funcionario Danilo = new Funcionario("Danilo", "Estagiario", 24, salarioDanilo);
     funcionarios.incluir(Danilo);
-    funcionarios.excluir(Gabriel);
-    funcionarios.modificar(Danilo, "faltas", "10"); 
-    // "idade", "nome", "cargo", "faltas", "funcionarioDoMes",
-    // "tempoServico", "tipoBonusPadrao", "salarioBase"
 
+    // Modificar funcionários
+    funcionarios.modificar(funcionarios.getFuncionarioByName("Gabriel"), "faltas", "1");
+    funcionarios.modificar(funcionarios.getFuncionarioByName("Danilo"), "funcionarioDoMes", "false");
+        // "idade", "nome", "cargo", "faltas", "funcionarioDoMes",
+        // "tempoServico", "tipoBonusPadrao", "salarioBase"
 
-    // Salário
-    funcionarios.getFuncionario(Danilo).getSalario().calcularSalario();
-
-    // Bonus
-    funcionarios.getFuncionario(Danilo).getSalario().listaHistorico();
+    // Calcular salário de funcionários
+    List<Funcionario> funcs = new ArrayList<Funcionario>();
+    funcs.add(funcionarios.getFuncionarioByName("Gabriel"));
+    funcs.add(funcionarios.getFuncionarioByName("Danilo"));
+    funcionarios.calcularSalarios(funcs);
 }
 ```
+
 </br>
 
 ## :rocket: Sobre o projeto
+
 Um sistema simples de funcionário, com possibilidade de adicionar, remover, modificar e gerar bônus dos mesmos.
 </br>
 
 ## :memo: Licença
+
 Este projeto está sobre a licença MIT. Veja [LICENSE](https://github.com/Danilo-Js/Repo-Searcher/blob/master/LICENSE) para mais informações.
 
 Feito por: Danilo José e Gabriel Namã

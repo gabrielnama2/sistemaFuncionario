@@ -1,5 +1,8 @@
 package projetos.sistema_funcionario.presenter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import projetos.sistema_funcionario.dao.DAO;
 import projetos.sistema_funcionario.model.Funcionario;
 import projetos.sistema_funcionario.model.FuncionarioCollection;

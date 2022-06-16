@@ -168,3 +168,13 @@
 2022-06-12 20:43:02 INFO  FuncionarioCollection:123 - Erro: java.lang.RuntimeException: Funcionario não existente
 2022-06-12 20:43:08 INFO  FuncionarioCollection:158 - Erro: java.lang.RuntimeException: Funcionario não existente
 2022-06-12 20:43:08 INFO  FuncionarioCollection:123 - Erro: java.lang.RuntimeException: Funcionario não existente
+2022-06-16 13:58:42 INFO  FuncionarioCollection:25 - Novo funcionário: Gabriel
+2022-06-16 13:58:42 INFO  FuncionarioCollection:25 - Novo funcionário: Danilo
+2022-06-16 14:12:53 INFO  FuncionarioCollection:52 - Funcionario Gabrielalterado
+2022-06-16 14:12:53 INFO  Funcionario:30 - Salário calculado: Gabriel
+2022-06-16 14:23:29 INFO  FuncionarioCollection:52 - Funcionario Gabrielalterado
+2022-06-16 14:23:29 INFO  Funcionario:30 - Salário calculado: Gabriel
+2022-06-16 14:27:30 INFO  FuncionarioCollection:52 - Funcionario Gabrielalterado
+2022-06-16 14:27:30 INFO  FuncionarioCollection:52 - Funcionario Daniloalterado
+2022-06-16 14:27:30 INFO  Funcionario:30 - Salário calculado: Gabriel
+2022-06-16 14:27:30 INFO  Funcionario:30 - Salário calculado: Danilo
