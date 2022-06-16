@@ -6,14 +6,14 @@ public class Historico {
     private LocalDate data;
     private double bonus;
     
-    public Historico(double bonusAbsoluto) {
+    public Historico(double bonusAbsoluto, LocalDate data) {
         this.setBonus(bonusAbsoluto);
-        this.setData(LocalDate.now());
+        this.setData(data);
     }
     
     @Override
     public String toString() {
-       return "Data: " + this.getData().getDayOfMonth() + "/" + this.getData().getMonthValue() + "/" + this.getData().getYear() + "\n" + "Valor do bonus: " + this.getBonus() + "\n";
+       return "\n--\nData: " + data.toString() + "\n" + "Valor do bonus: " + this.getBonus() + "\n--\n@splitHistorico";
     }
     
     // gets e sets

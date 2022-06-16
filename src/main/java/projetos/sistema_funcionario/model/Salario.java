@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 public class Salario {
     private static final Logger LOGGER = LoggerFactory.getLogger(Salario.class);
     
-    private List<Historico> historico = new ArrayList<Historico>();
+    private List<Historico> historico;
     
     private String tipoBonusPadrao;
     private double bonusPadrao;
@@ -33,12 +33,19 @@ public class Salario {
     private double bonusRelativo;
     
     //CONSTRUTOR
-    public Salario(String tipoBonusPadrao, int faltas, int tempoServico, boolean funcionarioMes, double salarioBase) {    
+    public Salario(String tipoBonusPadrao, int faltas, int tempoServico, boolean funcionarioMes, double salarioBase, List<Historico> historico) {    
         this.setTipoBonusPadrao(tipoBonusPadrao);
         this.setFaltas(faltas);
         this.setTempoServico(tempoServico);
         this.setFuncionarioMes(funcionarioMes);
         this.setSalarioBase(salarioBase);
+        this.historico = historico;
+        this.calcularSalario();
+    }
+    
+    // CONSTRUTOR SEM RECEBER O HISTÓRICO
+    public Salario(String tipoBonusPadrao, int faltas, int tempoServico, boolean funcionarioMes, double salarioBase)  {
+        this(tipoBonusPadrao, faltas, tempoServico, funcionarioMes, salarioBase, new ArrayList<Historico>());
     }
     
     public void calcularSalario(){
@@ -60,18 +67,21 @@ public class Salario {
             "\nFaltas: " + faltas  +
             "\nTempo de serviço: " + tempoServico + 
             "\nFuncionario do mes: " + funcionarioMes +
-            "\n\n------------------------------------------ //\n" + "@split\n";
+            "\n\n-- HISTORICO DE BONUS --" + this.listaHistorico() +
+            "\n\n------------------------------------------ //\n" +" @splitFuncionario\n";
     }
     
     // HISTORICO
-    public void listaHistorico() {
+    public String listaHistorico() {
+        String s = "\n";
         for (Historico h: this.getHistorico()) {
-            System.out.println(h.toString());
+            s += h.toString();
         }
+        return s;
     }
     
     public void incluiHistorico(double d) {
-        Historico novoHistorico = new Historico(d);
+        Historico novoHistorico = new Historico(d, LocalDate.now());
         this.getHistorico().add(novoHistorico);
     }
     

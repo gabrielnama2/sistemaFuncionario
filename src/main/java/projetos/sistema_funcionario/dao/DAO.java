@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -71,12 +72,12 @@ public class DAO {
             }
             
             List<Funcionario> funcionarios = new ArrayList<Funcionario>();
-            String[] funcionariosLeitura = new String(Files.readAllBytes(caminho)).split("@split");
+            String[] splitFuncionario = new String(Files.readAllBytes(caminho)).split("@splitFuncionario");
             
-            if (funcionariosLeitura.length > 0) {
-                for (int i = 0; i < funcionariosLeitura.length; i++) {
+            if (splitFuncionario.length > 0) {
+                for (int i = 0; i < splitFuncionario.length; i++) {
                     try {
-                        funcionarios.add(leituraToFuncionario(funcionariosLeitura[i]));
+                        funcionarios.add(leituraToFuncionario(splitFuncionario[i]));
                     } catch(Exception e) {}
                 }
                 return funcionarios;
@@ -91,17 +92,34 @@ public class DAO {
     
     // transforma a string de um funcionário em uma instância
     public Funcionario leituraToFuncionario(String s) {
-        String nome = s.substring(s.indexOf("Nome: "), s.indexOf("\n" + "Cargo: ")).split("Nome: ")[1];
-        String cargo = s.substring(s.indexOf("Cargo: "), s.indexOf("\n" + "Idade: ")).split("Cargo: ")[1];
-        int idade = Integer.parseInt(s.substring(s.indexOf("Idade: "), s.indexOf("\n" + "Salario: ")).split("Idade: ")[1]);
+        // Historico
+        List<Historico> historico = new ArrayList<Historico>();
+        String[] splitHistorico = s.split("@splitHistorico");
+        double bonusAbsoluto;
+        LocalDate data;
+        if (splitHistorico.length > 0) {
+            for (int i = 0; i < splitHistorico.length; i++) {
+                try {
+                    bonusAbsoluto = Double.parseDouble(splitHistorico[i].substring(s.indexOf("Data: "), s.indexOf("\n" + "Valor do bonus: ")).split("Data: ")[1]);
+                    data = LocalDate.parse(splitHistorico[i].substring(s.indexOf("Valor do bonus: "), s.indexOf("\n" + "--")).split("Valor do bonus: ")[1]);
+                    historico.add(new Historico(bonusAbsoluto, data));
+                } catch(Exception e) {}
+            }
+        } 
+        
+        // Salario
         double salarioBase = Double.parseDouble(s.substring(s.indexOf("Salario: "), s.indexOf("\n" + "\n" + "BONUS DO FUNCIONARIO")).split("Salario: ")[1]);
-
         String tipoBonus = s.substring(s.indexOf("Bonus padrão: "), s.indexOf("\n" + "Faltas: ")).split("Bonus padrão: ")[1];
         int faltas = Integer.parseInt(s.substring(s.indexOf("Faltas: "), s.indexOf("\n" + "Tempo de serviço: ")).split("Faltas: ")[1]);
         int tempoServico = Integer.parseInt(s.substring(s.indexOf("Tempo de serviço: "), s.indexOf("\n" + "Funcionario do mes: ")).split("Tempo de serviço: ")[1]);
         boolean funcionarioMes = Boolean.parseBoolean(s.substring(s.indexOf("Funcionario do mes: "), s.indexOf("\n" + "\n" + "------------------------------------------ //")).split("Funcionario do mes: ")[1]);
+        Salario salario = new Salario(tipoBonus, faltas, tempoServico, funcionarioMes, salarioBase, historico);
 
-        Salario salario = new Salario(tipoBonus, faltas, tempoServico, funcionarioMes, salarioBase);
+        // Funcionario
+        String nome = s.substring(s.indexOf("Nome: "), s.indexOf("\n" + "Cargo: ")).split("Nome: ")[1];
+        String cargo = s.substring(s.indexOf("Cargo: "), s.indexOf("\n" + "Idade: ")).split("Cargo: ")[1];
+        int idade = Integer.parseInt(s.substring(s.indexOf("Idade: "), s.indexOf("\n" + "Salario: ")).split("Idade: ")[1]);
+
         return new Funcionario(nome, cargo, idade, salario);
     }
 }
