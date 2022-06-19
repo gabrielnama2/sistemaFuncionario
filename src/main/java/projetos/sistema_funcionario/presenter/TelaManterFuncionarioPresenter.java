@@ -8,7 +8,7 @@ import projetos.sistema_funcionario.view.TelaManterFuncionario;
 public class TelaManterFuncionarioPresenter {
     private TelaManterFuncionario view; 
     
-    public TelaManterFuncionarioPresenter() {
+    public TelaManterFuncionarioPresenter(TelaBuscarFuncionarioPresenter telaBuscarFuncionario) {
         this.view = new TelaManterFuncionario();
         
         this.view.getCancelar().addActionListener((e) -> {
@@ -27,6 +27,7 @@ public class TelaManterFuncionarioPresenter {
             Funcionario funcionario = new Funcionario(nome, cargo, idade, salario);
             
             new DAO().salvarFuncionario(funcionario);
+            telaBuscarFuncionario.pesquisar();
         });
         
         this.view.setVisible(true);

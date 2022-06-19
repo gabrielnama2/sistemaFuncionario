@@ -1,11 +1,12 @@
 package projetos.sistema_funcionario.view;
 
-import java.util.ArrayList;
+import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import projetos.sistema_funcionario.model.Funcionario;
-import projetos.sistema_funcionario.model.FuncionarioCollection;
+import javax.swing.table.JTableHeader;
 
 public class TelaBuscarFuncionario extends javax.swing.JFrame {
 
@@ -13,6 +14,30 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
     
     public TelaBuscarFuncionario() {
         initComponents();
+        this.mudaEstiloTabela();
+    }
+    
+    private void mudaEstiloTabela() {
+        // cor do cabeçalho
+        JTableHeader header = this.getTabelaFuncionarios().getTableHeader();
+        header.setBackground(Color.black);
+        header.setForeground(Color.white);
+        
+        // alinhamento do cabeçalho
+        ((DefaultTableCellRenderer)this.getTabelaFuncionarios().getTableHeader()
+                .getDefaultRenderer()).setHorizontalAlignment(JLabel.LEFT);
+        
+        // alinhando as células
+        DefaultTableCellRenderer leftRenderer = new DefaultTableCellRenderer();
+        leftRenderer.setHorizontalAlignment(JLabel.LEFT);
+        this.getTabelaFuncionarios().getColumnModel().getColumn(0).setCellRenderer(leftRenderer);
+        this.getTabelaFuncionarios().getColumnModel().getColumn(1).setCellRenderer(leftRenderer);
+        this.getTabelaFuncionarios().getColumnModel().getColumn(2).setCellRenderer(leftRenderer);
+        this.getTabelaFuncionarios().getColumnModel().getColumn(3).setCellRenderer(leftRenderer);
+        this.getTabelaFuncionarios().getColumnModel().getColumn(4).setCellRenderer(leftRenderer);
+        this.getTabelaFuncionarios().getColumnModel().getColumn(5).setCellRenderer(leftRenderer);
+        this.getTabelaFuncionarios().getColumnModel().getColumn(6).setCellRenderer(leftRenderer);
+        this.getTabelaFuncionarios().getColumnModel().getColumn(7).setCellRenderer(leftRenderer);
     }
 
     @SuppressWarnings("unchecked")
@@ -24,13 +49,12 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
         labelNome = new javax.swing.JLabel();
         valorPesquisa = new javax.swing.JTextField();
         botaoBuscarFuncionario = new javax.swing.JButton();
-        tituloJanela1 = new javax.swing.JLabel();
         botaoCancelar = new javax.swing.JButton();
         botaoExcluir = new javax.swing.JButton();
         botaoEditar = new javax.swing.JButton();
         jNovoCadastro = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        Tabela = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TabelaFuncionarios = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manter funcionários");
@@ -54,10 +78,6 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
             }
         });
 
-        tituloJanela1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        tituloJanela1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tituloJanela1.setText("Funcionários:");
-
         botaoCancelar.setText("Cancelar");
         botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,62 +96,99 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
 
         jNovoCadastro.setText("Novo ");
 
-        Tabela.setModel(new javax.swing.table.DefaultTableModel(
+        TabelaFuncionarios.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        TabelaFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-
+                "Nome", "Cargo", "Idade", "Faltas", "Funcionário do Mês", "Tempo de serviço", "Tipo de bônus", "Salário base"
             }
-        ));
-        jScrollPane2.setViewportView(Tabela);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TabelaFuncionarios.setColumnSelectionAllowed(true);
+        TabelaFuncionarios.setGridColor(new java.awt.Color(0, 0, 0));
+        TabelaFuncionarios.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(TabelaFuncionarios);
+        TabelaFuncionarios.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (TabelaFuncionarios.getColumnModel().getColumnCount() > 0) {
+            TabelaFuncionarios.getColumnModel().getColumn(0).setResizable(false);
+            TabelaFuncionarios.getColumnModel().getColumn(0).setPreferredWidth(20);
+            TabelaFuncionarios.getColumnModel().getColumn(1).setResizable(false);
+            TabelaFuncionarios.getColumnModel().getColumn(2).setResizable(false);
+            TabelaFuncionarios.getColumnModel().getColumn(2).setPreferredWidth(20);
+            TabelaFuncionarios.getColumnModel().getColumn(3).setResizable(false);
+            TabelaFuncionarios.getColumnModel().getColumn(3).setPreferredWidth(20);
+            TabelaFuncionarios.getColumnModel().getColumn(4).setResizable(false);
+            TabelaFuncionarios.getColumnModel().getColumn(4).setPreferredWidth(100);
+            TabelaFuncionarios.getColumnModel().getColumn(5).setResizable(false);
+            TabelaFuncionarios.getColumnModel().getColumn(5).setPreferredWidth(100);
+            TabelaFuncionarios.getColumnModel().getColumn(6).setResizable(false);
+            TabelaFuncionarios.getColumnModel().getColumn(6).setPreferredWidth(100);
+            TabelaFuncionarios.getColumnModel().getColumn(7).setResizable(false);
+            TabelaFuncionarios.getColumnModel().getColumn(7).setPreferredWidth(100);
+        }
 
         javax.swing.GroupLayout painelBuscarFuncionarioLayout = new javax.swing.GroupLayout(painelBuscarFuncionario);
         painelBuscarFuncionario.setLayout(painelBuscarFuncionarioLayout);
         painelBuscarFuncionarioLayout.setHorizontalGroup(
             painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelBuscarFuncionarioLayout.createSequentialGroup()
-                .addContainerGap(216, Short.MAX_VALUE)
+                .addContainerGap(336, Short.MAX_VALUE)
                 .addGroup(painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
-                        .addGap(183, 183, 183)
-                        .addComponent(tituloJanela))
-                    .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelBuscarFuncionarioLayout.createSequentialGroup()
+                        .addGroup(painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
+                                .addGap(183, 183, 183)
+                                .addComponent(tituloJanela))
+                            .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
+                                .addComponent(labelNome)
+                                .addGap(18, 18, 18)
+                                .addComponent(valorPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(botaoBuscarFuncionario)))
+                        .addGap(301, 301, 301))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelBuscarFuncionarioLayout.createSequentialGroup()
                         .addComponent(botaoCancelar)
                         .addGap(225, 225, 225)
                         .addComponent(botaoExcluir)
                         .addGap(18, 18, 18)
                         .addComponent(botaoEditar)
                         .addGap(18, 18, 18)
-                        .addComponent(jNovoCadastro))
-                    .addGroup(painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane2)
-                        .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
-                            .addComponent(labelNome)
-                            .addGap(18, 18, 18)
-                            .addComponent(valorPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(30, 30, 30)
-                            .addComponent(botaoBuscarFuncionario)))
-                    .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
-                        .addGap(231, 231, 231)
-                        .addComponent(tituloJanela1)))
-                .addGap(212, 212, 212))
+                        .addComponent(jNovoCadastro)
+                        .addGap(311, 311, 311))))
         );
         painelBuscarFuncionarioLayout.setVerticalGroup(
             painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(37, 37, 37)
                 .addComponent(tituloJanela)
                 .addGap(38, 38, 38)
                 .addGroup(painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNome)
                     .addComponent(valorPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoBuscarFuncionario))
-                .addGap(21, 21, 21)
-                .addComponent(tituloJanela1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoCancelar)
                     .addComponent(botaoExcluir)
@@ -152,7 +209,7 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(9, Short.MAX_VALUE)
                 .addComponent(painelBuscarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -196,8 +253,8 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
         return jNovoCadastro;
     }
     
-    public JTable getTabela() {
-        return this.Tabela;
+    public JTable getTabelaFuncionarios() {
+        return this.TabelaFuncionarios;
     }
     
     public String getValorPesquisa() {
@@ -210,17 +267,16 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable Tabela;
+    private javax.swing.JTable TabelaFuncionarios;
     private javax.swing.JButton botaoBuscarFuncionario;
     private javax.swing.JButton botaoCancelar;
     private javax.swing.JButton botaoEditar;
     private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton jNovoCadastro;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelNome;
     private javax.swing.JPanel painelBuscarFuncionario;
     private javax.swing.JLabel tituloJanela;
-    private javax.swing.JLabel tituloJanela1;
     private javax.swing.JTextField valorPesquisa;
     // End of variables declaration//GEN-END:variables
 }

@@ -36,7 +36,7 @@ Trabalho desenvolvido para a disciplina Projetos de Sistemas de Software, minist
 Git clone https://github.com/gabrielnama2/sistema_funcionario.git
 ```
 
-2 - Importe o projeto no Netbenas e assinale a classe raiz, escolhendo o caminho da mesma clique com o botão direito no projeto: Proprerties > Run -> Main class -> Escolha o caminho da classe raiz
+2 - Importe o projeto no Netbenas e assinale a classe raiz, escolhendo o caminho da mesma clique com o botão direito no projeto: Properties > Run -> Main class -> Escolha o caminho da classe raiz
 
 Para testes com a inteface gráfica, utilize o caminho
 
@@ -85,6 +85,13 @@ public static void seeds() {
 ## :rocket: Sobre o projeto
 
 Um sistema simples de funcionário, com possibilidade de adicionar, remover, modificar e gerar bônus dos mesmos.
+
+</br>
+
+<p align="center">
+  <img alt="Web" width="600" height="300" src="https://github.com/gabrielnama2/sistema_funcionario/blob/danilo/GIFs/novoFuncionario.gif">
+</p>
+
 </br>
 
 ## :memo: Licença

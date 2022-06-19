@@ -17,8 +17,8 @@ public class TelaBuscarFuncionarioPresenter {
 
     public TelaBuscarFuncionarioPresenter() {
         this.view = new TelaBuscarFuncionario();
-        this.tabela = this.view.getTabela();
-        this.atualizaTabela();
+        this.tabela = this.view.getTabelaFuncionarios();
+        this.pesquisar();
         
         this.view.getBotaoBuscarFuncionario().addActionListener((e) -> {
             this.pesquisar();
@@ -30,7 +30,7 @@ public class TelaBuscarFuncionarioPresenter {
         });
         
         this.view.getNovoCadastro().addActionListener((e) -> {
-            new TelaManterFuncionarioPresenter();
+            new TelaManterFuncionarioPresenter(this);
         });
     }
     
@@ -38,7 +38,7 @@ public class TelaBuscarFuncionarioPresenter {
        this.view.setVisible(true);
     }
     
-    private void pesquisar() {
+    public void pesquisar() {
         if(this.view.getValorPesquisa().isEmpty()) {
             atualizaTabela();
             return;
@@ -51,9 +51,13 @@ public class TelaBuscarFuncionarioPresenter {
             for(Funcionario func: new FuncionarioCollection().getFuncionariosByName(this.view.getValorPesquisa())) {
                 modelo.addRow(new Object[]{
                     func.getNome(),
-                    func.getIdade(),
                     func.getCargo(),
-                    String.format("%.2f", func.getSalario().getSalarioBase())
+                    func.getIdade(),
+                    func.getSalario().getFaltas(),
+                    func.getSalario().getFuncionarioDoMes(),
+                    Integer.toString(func.getSalario().getTempoServico()) + " meses",
+                    func.getSalario().getTipoBonusPadrao(),
+                    "R$ " + String.format("%.2f", func.getSalario().getSalarioBase())
                 });
             }
         } catch(RuntimeException e) {
@@ -70,9 +74,13 @@ public class TelaBuscarFuncionarioPresenter {
             for(Funcionario func: new FuncionarioCollection().getFuncionarios()) {
                 modelo.addRow(new Object[]{
                     func.getNome(),
-                    func.getIdade(),
                     func.getCargo(),
-                    String.format("%.2f", func.getSalario().getSalarioBase())
+                    func.getIdade(),
+                    func.getSalario().getFaltas(),
+                    func.getSalario().getFuncionarioDoMes(),
+                    Integer.toString(func.getSalario().getTempoServico()) + " meses",
+                    func.getSalario().getTipoBonusPadrao(),
+                    "R$ " + String.format("%.2f", func.getSalario().getSalarioBase())
                 });
             }
         } catch(RuntimeException e) {

@@ -36,11 +36,14 @@ public class TelaCalcularSalario extends javax.swing.JFrame {
         tituloJanela1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        botaoCalcularSalario = new javax.swing.JButton();
         botaoCancelar = new javax.swing.JButton();
+        botaoCalcularSalario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manter funcionários");
+        setPreferredSize(new java.awt.Dimension(1224, 684));
+
+        painelBuscarFuncionario.setPreferredSize(new java.awt.Dimension(1224, 684));
 
         tituloJanela.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         tituloJanela.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -84,54 +87,67 @@ public class TelaCalcularSalario extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        javax.swing.GroupLayout painelBuscarFuncionarioLayout = new javax.swing.GroupLayout(painelBuscarFuncionario);
-        painelBuscarFuncionario.setLayout(painelBuscarFuncionarioLayout);
-        painelBuscarFuncionarioLayout.setHorizontalGroup(
-            painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
-                .addGroup(painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addGroup(painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
-                                .addComponent(labelNome)
-                                .addGap(18, 18, 18)
-                                .addComponent(campoTextoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botaoBuscarFuncionario))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
-                        .addGap(371, 371, 371)
-                        .addComponent(tituloJanela1))
-                    .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
-                        .addGap(330, 330, 330)
-                        .addComponent(tituloJanela)))
-                .addContainerGap(157, Short.MAX_VALUE))
-        );
-        painelBuscarFuncionarioLayout.setVerticalGroup(
-            painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(tituloJanela)
-                .addGap(44, 44, 44)
-                .addGroup(painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNome)
-                    .addComponent(campoTextoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoBuscarFuncionario))
-                .addGap(26, 26, 26)
-                .addComponent(tituloJanela1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        botaoCalcularSalario.setText("Calcular");
-
         botaoCancelar.setText("Cancelar");
         botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoCancelarActionPerformed(evt);
             }
         });
+
+        botaoCalcularSalario.setText("Calcular");
+
+        javax.swing.GroupLayout painelBuscarFuncionarioLayout = new javax.swing.GroupLayout(painelBuscarFuncionario);
+        painelBuscarFuncionario.setLayout(painelBuscarFuncionarioLayout);
+        painelBuscarFuncionarioLayout.setHorizontalGroup(
+            painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelBuscarFuncionarioLayout.createSequentialGroup()
+                .addContainerGap(350, Short.MAX_VALUE)
+                .addGroup(painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
+                            .addComponent(labelNome)
+                            .addGap(18, 18, 18)
+                            .addComponent(campoTextoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botaoBuscarFuncionario))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
+                        .addGap(228, 228, 228)
+                        .addComponent(tituloJanela1))
+                    .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
+                        .addGap(187, 187, 187)
+                        .addComponent(tituloJanela))
+                    .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(botaoCalcularSalario)
+                        .addGap(279, 279, 279)
+                        .addComponent(botaoCancelar)))
+                .addGap(323, 323, 323))
+        );
+        painelBuscarFuncionarioLayout.setVerticalGroup(
+            painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
+                        .addComponent(tituloJanela)
+                        .addGap(44, 44, 44)
+                        .addGroup(painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelNome)
+                            .addComponent(campoTextoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoBuscarFuncionario))
+                        .addGap(26, 26, 26)
+                        .addComponent(tituloJanela1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(painelBuscarFuncionarioLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(53, 53, 53)
+                .addGroup(painelBuscarFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoCalcularSalario)
+                    .addComponent(botaoCancelar))
+                .addGap(126, 126, 126))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,22 +156,10 @@ public class TelaCalcularSalario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(painelBuscarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(152, 152, 152)
-                .addComponent(botaoCancelar)
-                .addGap(365, 365, 365)
-                .addComponent(botaoCalcularSalario)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(painelBuscarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoCalcularSalario)
-                    .addComponent(botaoCancelar))
-                .addGap(0, 80, Short.MAX_VALUE))
+            .addComponent(painelBuscarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
