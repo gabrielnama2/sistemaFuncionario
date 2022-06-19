@@ -190,6 +190,13 @@ public class Salario {
     public double getBonusFuncionarioMes() {
         return bonusFuncionarioMes;
     }
+    public String getFuncionarioDoMes() {
+        if (this.isFuncionarioMes()) {
+            return "Sim";
+        } else {
+            return "Não";
+        }
+    }
     
     //SALÁRIO BASE
     public double getSalarioBase() {

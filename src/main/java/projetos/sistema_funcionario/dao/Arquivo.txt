@@ -1,0 +1,56 @@
+
+
+// ------------------------------------------
+
+DADOS DO FUNCIONARIO
+
+Nome: Gabriel
+Cargo: Estagiário
+Idade: 24
+Salario: 1000.0
+
+BONUS DO FUNCIONARIO
+
+Bonus padrão: normal
+Faltas: 0
+Tempo de serviço: 0
+Funcionario do mes: false
+
+-- HISTORICO DE BONUS --
+
+--
+Data: 2022-06-19
+Valor do bonus: 150.00000000000003
+--
+@splitHistorico
+
+------------------------------------------ //
+ @splitFuncionario
+
+
+// ------------------------------------------
+
+DADOS DO FUNCIONARIO
+
+Nome: Danilo
+Cargo: Estagiário
+Idade: 23
+Salario: 2600.0
+
+BONUS DO FUNCIONARIO
+
+Bonus padrão: generoso
+Faltas: 0
+Tempo de serviço: 0
+Funcionario do mes: false
+
+-- HISTORICO DE BONUS --
+
+--
+Data: 2022-06-19
+Valor do bonus: 520.0
+--
+@splitHistorico
+
+------------------------------------------ //
+ @splitFuncionario

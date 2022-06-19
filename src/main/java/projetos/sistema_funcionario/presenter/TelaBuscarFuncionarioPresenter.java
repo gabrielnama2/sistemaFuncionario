@@ -17,7 +17,7 @@ public class TelaBuscarFuncionarioPresenter {
 
     public TelaBuscarFuncionarioPresenter() {
         this.view = new TelaBuscarFuncionario();
-        this.tabela = this.view.getTabela();
+        this.tabela = this.view.getTabelaFuncionarios();
         this.atualizaTabela();
         
         this.view.getBotaoBuscarFuncionario().addActionListener((e) -> {
@@ -30,7 +30,7 @@ public class TelaBuscarFuncionarioPresenter {
         });
         
         this.view.getNovoCadastro().addActionListener((e) -> {
-            new TelaManterFuncionarioPresenter();
+            new TelaManterFuncionarioPresenter(this);
         });
     }
     
@@ -62,17 +62,24 @@ public class TelaBuscarFuncionarioPresenter {
         }
     }
     
-    private void atualizaTabela() {
+    public void atualizaTabela() {
         try {
             DefaultTableModel modelo = (DefaultTableModel) this.tabela.getModel();
             modelo.setNumRows(0);
 
+            int id = 0;
             for(Funcionario func: new FuncionarioCollection().getFuncionarios()) {
+                System.out.println(func.toString());
+                id += 1;
                 modelo.addRow(new Object[]{
+                    Integer.toString(id),
                     func.getNome(),
-                    func.getIdade(),
                     func.getCargo(),
-                    String.format("%.2f", func.getSalario().getSalarioBase())
+                    func.getIdade(),
+                    func.getSalario().getFaltas(),
+                    func.getSalario().getFuncionarioDoMes(),
+                    Integer.toString(func.getSalario().getTempoServico()) + " meses",
+                    "R$ " + String.format("%.2f", func.getSalario().getSalarioBase())
                 });
             }
         } catch(RuntimeException e) {

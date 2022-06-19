@@ -189,7 +189,7 @@ public class FuncionarioCollection {
     }
     
     public List<Funcionario> getFuncionarios() {
-        return funcionarios;
+        return this.funcionarios;
     }
     
     public void setFuncionarios(List<Funcionario> funcs) {
