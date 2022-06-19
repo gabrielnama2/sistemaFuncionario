@@ -85,6 +85,13 @@ public static void seeds() {
 ## :rocket: Sobre o projeto
 
 Um sistema simples de funcionário, com possibilidade de adicionar, remover, modificar e gerar bônus dos mesmos.
+
+</br>
+
+<p align="center">
+  <img alt="Web" width="600" height="300" src="https://github.com/gabrielnama2/sistema_funcionario/blob/danilo/GIFs/novoFuncionario.gif">
+</p>
+
 </br>
 
 ## :memo: Licença
