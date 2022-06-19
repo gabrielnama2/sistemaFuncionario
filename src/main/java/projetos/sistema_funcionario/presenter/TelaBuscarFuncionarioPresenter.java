@@ -18,7 +18,7 @@ public class TelaBuscarFuncionarioPresenter {
     public TelaBuscarFuncionarioPresenter() {
         this.view = new TelaBuscarFuncionario();
         this.tabela = this.view.getTabelaFuncionarios();
-        this.atualizaTabela();
+        this.pesquisar();
         
         this.view.getBotaoBuscarFuncionario().addActionListener((e) -> {
             this.pesquisar();
@@ -38,7 +38,7 @@ public class TelaBuscarFuncionarioPresenter {
        this.view.setVisible(true);
     }
     
-    private void pesquisar() {
+    public void pesquisar() {
         if(this.view.getValorPesquisa().isEmpty()) {
             atualizaTabela();
             return;
@@ -51,9 +51,13 @@ public class TelaBuscarFuncionarioPresenter {
             for(Funcionario func: new FuncionarioCollection().getFuncionariosByName(this.view.getValorPesquisa())) {
                 modelo.addRow(new Object[]{
                     func.getNome(),
-                    func.getIdade(),
                     func.getCargo(),
-                    String.format("%.2f", func.getSalario().getSalarioBase())
+                    func.getIdade(),
+                    func.getSalario().getFaltas(),
+                    func.getSalario().getFuncionarioDoMes(),
+                    Integer.toString(func.getSalario().getTempoServico()) + " meses",
+                    func.getSalario().getTipoBonusPadrao(),
+                    "R$ " + String.format("%.2f", func.getSalario().getSalarioBase())
                 });
             }
         } catch(RuntimeException e) {
@@ -62,23 +66,20 @@ public class TelaBuscarFuncionarioPresenter {
         }
     }
     
-    public void atualizaTabela() {
+    private void atualizaTabela() {
         try {
             DefaultTableModel modelo = (DefaultTableModel) this.tabela.getModel();
             modelo.setNumRows(0);
 
-            int id = 0;
             for(Funcionario func: new FuncionarioCollection().getFuncionarios()) {
-                System.out.println(func.toString());
-                id += 1;
                 modelo.addRow(new Object[]{
-                    Integer.toString(id),
                     func.getNome(),
                     func.getCargo(),
                     func.getIdade(),
                     func.getSalario().getFaltas(),
                     func.getSalario().getFuncionarioDoMes(),
                     Integer.toString(func.getSalario().getTempoServico()) + " meses",
+                    func.getSalario().getTipoBonusPadrao(),
                     "R$ " + String.format("%.2f", func.getSalario().getSalarioBase())
                 });
             }

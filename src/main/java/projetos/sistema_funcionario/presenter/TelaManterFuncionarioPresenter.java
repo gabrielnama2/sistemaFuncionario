@@ -27,7 +27,7 @@ public class TelaManterFuncionarioPresenter {
             Funcionario funcionario = new Funcionario(nome, cargo, idade, salario);
             
             new DAO().salvarFuncionario(funcionario);
-            telaBuscarFuncionario.atualizaTabela();
+            telaBuscarFuncionario.pesquisar();
         });
         
         this.view.setVisible(true);

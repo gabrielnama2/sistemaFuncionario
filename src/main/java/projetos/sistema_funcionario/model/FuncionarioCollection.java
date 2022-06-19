@@ -19,7 +19,7 @@ public class FuncionarioCollection {
     // CRUD
     public void incluir(Funcionario func) {
         try {
-            if (possuiFuncionario(func)) {
+            if (possuiFuncionarioByName(func.getNome())) {
                 throw new RuntimeException("Funcionario já existente");
             }
             LOGGER.info("Novo funcionário: " + func.getNome());
@@ -142,6 +142,15 @@ public class FuncionarioCollection {
     }
     
     // middlewares de verificação
+    public boolean possuiFuncionarioByName(String name) {
+        for (Funcionario arrayFunc : this.getFuncionarios()) {
+            if (name.equals(arrayFunc.getNome())) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public boolean possuiFuncionario(Funcionario func) {
         for (Funcionario arrayFunc : this.getFuncionarios()) {
             if (arrayFunc.toString().equals(func.toString())) {

@@ -4,6 +4,62 @@
 
 DADOS DO FUNCIONARIO
 
+Nome: Ciclano
+Cargo: Gerente de Projetos
+Idade: 22
+Salario: 2500.0
+
+BONUS DO FUNCIONARIO
+
+Bonus padrão: generoso
+Faltas: 0
+Tempo de serviço: 0
+Funcionario do mes: false
+
+-- HISTORICO DE BONUS --
+
+--
+Data: 2022-06-19
+Valor do bonus: 500.0
+--
+@splitHistorico
+
+------------------------------------------ //
+ @splitFuncionario
+
+
+// ------------------------------------------
+
+DADOS DO FUNCIONARIO
+
+Nome: Fulano
+Cargo: Analista
+Idade: 20
+Salario: 2000.0
+
+BONUS DO FUNCIONARIO
+
+Bonus padrão: normal
+Faltas: 0
+Tempo de serviço: 0
+Funcionario do mes: false
+
+-- HISTORICO DE BONUS --
+
+--
+Data: 2022-06-19
+Valor do bonus: 300.00000000000006
+--
+@splitHistorico
+
+------------------------------------------ //
+ @splitFuncionario
+
+
+// ------------------------------------------
+
+DADOS DO FUNCIONARIO
+
 Nome: Gabriel
 Cargo: Estagiário
 Idade: 24

@@ -1,11 +1,12 @@
 package projetos.sistema_funcionario.view;
 
-import java.util.ArrayList;
+import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import projetos.sistema_funcionario.model.Funcionario;
-import projetos.sistema_funcionario.model.FuncionarioCollection;
+import javax.swing.table.JTableHeader;
 
 public class TelaBuscarFuncionario extends javax.swing.JFrame {
 
@@ -13,6 +14,30 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
     
     public TelaBuscarFuncionario() {
         initComponents();
+        this.mudaEstiloTabela();
+    }
+    
+    private void mudaEstiloTabela() {
+        // cor do cabeçalho
+        JTableHeader header = this.getTabelaFuncionarios().getTableHeader();
+        header.setBackground(Color.black);
+        header.setForeground(Color.white);
+        
+        // alinhamento do cabeçalho
+        ((DefaultTableCellRenderer)this.getTabelaFuncionarios().getTableHeader()
+                .getDefaultRenderer()).setHorizontalAlignment(JLabel.LEFT);
+        
+        // alinhando as células
+        DefaultTableCellRenderer leftRenderer = new DefaultTableCellRenderer();
+        leftRenderer.setHorizontalAlignment(JLabel.LEFT);
+        this.getTabelaFuncionarios().getColumnModel().getColumn(0).setCellRenderer(leftRenderer);
+        this.getTabelaFuncionarios().getColumnModel().getColumn(1).setCellRenderer(leftRenderer);
+        this.getTabelaFuncionarios().getColumnModel().getColumn(2).setCellRenderer(leftRenderer);
+        this.getTabelaFuncionarios().getColumnModel().getColumn(3).setCellRenderer(leftRenderer);
+        this.getTabelaFuncionarios().getColumnModel().getColumn(4).setCellRenderer(leftRenderer);
+        this.getTabelaFuncionarios().getColumnModel().getColumn(5).setCellRenderer(leftRenderer);
+        this.getTabelaFuncionarios().getColumnModel().getColumn(6).setCellRenderer(leftRenderer);
+        this.getTabelaFuncionarios().getColumnModel().getColumn(7).setCellRenderer(leftRenderer);
     }
 
     @SuppressWarnings("unchecked")
@@ -71,22 +96,23 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
 
         jNovoCadastro.setText("Novo ");
 
+        TabelaFuncionarios.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         TabelaFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nome", "Cargo", "Idade", "Faltas", "Funcionário do Mês", "Tempo de serviço", "Tipo de bônus", "Salário base"
+                "Nome", "Cargo", "Idade", "Faltas", "Funcionário do Mês", "Tempo de serviço", "Tipo de bônus", "Salário base"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -97,16 +123,27 @@ public class TelaBuscarFuncionario extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        TabelaFuncionarios.setColumnSelectionAllowed(true);
+        TabelaFuncionarios.setGridColor(new java.awt.Color(0, 0, 0));
+        TabelaFuncionarios.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(TabelaFuncionarios);
+        TabelaFuncionarios.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (TabelaFuncionarios.getColumnModel().getColumnCount() > 0) {
+            TabelaFuncionarios.getColumnModel().getColumn(0).setResizable(false);
             TabelaFuncionarios.getColumnModel().getColumn(0).setPreferredWidth(20);
-            TabelaFuncionarios.getColumnModel().getColumn(1).setPreferredWidth(20);
+            TabelaFuncionarios.getColumnModel().getColumn(1).setResizable(false);
+            TabelaFuncionarios.getColumnModel().getColumn(2).setResizable(false);
+            TabelaFuncionarios.getColumnModel().getColumn(2).setPreferredWidth(20);
+            TabelaFuncionarios.getColumnModel().getColumn(3).setResizable(false);
             TabelaFuncionarios.getColumnModel().getColumn(3).setPreferredWidth(20);
-            TabelaFuncionarios.getColumnModel().getColumn(4).setPreferredWidth(20);
+            TabelaFuncionarios.getColumnModel().getColumn(4).setResizable(false);
+            TabelaFuncionarios.getColumnModel().getColumn(4).setPreferredWidth(100);
+            TabelaFuncionarios.getColumnModel().getColumn(5).setResizable(false);
             TabelaFuncionarios.getColumnModel().getColumn(5).setPreferredWidth(100);
+            TabelaFuncionarios.getColumnModel().getColumn(6).setResizable(false);
             TabelaFuncionarios.getColumnModel().getColumn(6).setPreferredWidth(100);
+            TabelaFuncionarios.getColumnModel().getColumn(7).setResizable(false);
             TabelaFuncionarios.getColumnModel().getColumn(7).setPreferredWidth(100);
-            TabelaFuncionarios.getColumnModel().getColumn(8).setPreferredWidth(100);
         }
 
         javax.swing.GroupLayout painelBuscarFuncionarioLayout = new javax.swing.GroupLayout(painelBuscarFuncionario);
