@@ -53,30 +53,24 @@ projetos.sistema_funcionario.teste.Seeds
 O arquivo [Seeds.Java](https://github.com/gabrielnama2/sistema_funcionario/blob/danilo/src/main/java/projetos/sistema_funcionario/test/Seeds.java) possui exemplos de testes
 
 ```
-public static void seeds() {
+public static void seeds() throws IOException {
+    //CRIA UM ARQUIVO
+    Arquivo arq = new Arquivo();
+
+    //CRIA UMA COLEÇÃO (LISTA) DE FUNCIONÁRIOS
     FuncionarioCollection funcionarios = new FuncionarioCollection();
 
-    //  Funcionario 1
-    Salario salarioGabriel = new Salario("generoso", 5, 4, true, 1000);
+    //CRIANDO UM FUNCIONÁRIO
+    Salario salarioGabriel = new Salario("generoso", 5, 3, true, 1000);
     Funcionario Gabriel = new Funcionario("Gabriel", "Estagiario", 24, salarioGabriel);
     funcionarios.incluir(Gabriel);
+    arq.salvar(Gabriel);
 
-    //  Funcionario 2
-    Salario salarioDanilo = new Salario("generoso", 5, 4, true, 1000);
-    Funcionario Danilo = new Funcionario("Danilo", "Estagiario", 24, salarioDanilo);
+    //CRIANDO OUTRO FUNCIONÁRIO
+    Salario salarioDanilo = new Salario("generoso", 2, 4, false, 1500);
+    Funcionario Danilo = new Funcionario("Danilo", "Programador Jr", 26, salarioDanilo);
     funcionarios.incluir(Danilo);
-
-    // Modificar funcionários
-    funcionarios.modificar(funcionarios.getFuncionarioByName("Gabriel"), "faltas", "1");
-    funcionarios.modificar(funcionarios.getFuncionarioByName("Danilo"), "funcionarioDoMes", "false");
-        // "idade", "nome", "cargo", "faltas", "funcionarioDoMes",
-        // "tempoServico", "tipoBonusPadrao", "salarioBase"
-
-    // Calcular salário de funcionários
-    List<Funcionario> funcs = new ArrayList<Funcionario>();
-    funcs.add(funcionarios.getFuncionarioByName("Gabriel"));
-    funcs.add(funcionarios.getFuncionarioByName("Danilo"));
-    funcionarios.calcularSalarios(funcs);
+    arq.salvar(Danilo);
 }
 ```
 

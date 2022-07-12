@@ -1,0 +1,56 @@
+
+
+// ------------------------------------------
+
+DADOS DO FUNCIONARIO
+
+Nome: Danilo
+Cargo: Programador Jr
+Idade: 26
+Salario: 1500.0
+
+BONUS DO FUNCIONARIO
+
+Bonus padrão: generoso
+Faltas: 2
+Tempo de serviço: 4
+Funcionario do mes: false
+
+-- HISTORICO DE BONUS --
+
+--
+Data: 2022-07-12
+Valor do bonus: 255.00000000000003
+--
+@splitHistorico
+
+------------------------------------------ //
+ @splitFuncionario
+
+
+// ------------------------------------------
+
+DADOS DO FUNCIONARIO
+
+Nome: Gabriel
+Cargo: Estagiario
+Idade: 24
+Salario: 1000.0
+
+BONUS DO FUNCIONARIO
+
+Bonus padrão: generoso
+Faltas: 5
+Tempo de serviço: 3
+Funcionario do mes: true
+
+-- HISTORICO DE BONUS --
+
+--
+Data: 2022-07-12
+Valor do bonus: 330.0
+--
+@splitHistorico
+
+------------------------------------------ //
+ @splitFuncionario

@@ -1,14 +1,13 @@
 package projetos.sistema_funcionario;
 import java.io.IOException;
-import projetos.sistema_funcionario.salario.Salario;
 import projetos.sistema_funcionario.model.*;
 import projetos.sistema_funcionario.presenter.Arquivo;
+import projetos.sistema_funcionario.presenter.TelaPrincipalPresenter;
 
 
 public class Sistema_funcionario {
-
-    public static void main(String[] args) throws IOException {
-        
+    
+    public static void seeds() throws IOException {
         //CRIA UM ARQUIVO
         Arquivo arq = new Arquivo();
         
@@ -26,5 +25,11 @@ public class Sistema_funcionario {
         Funcionario Danilo = new Funcionario("Danilo", "Programador Jr", 26, salarioDanilo);
         funcionarios.incluir(Danilo);
         arq.salvar(Danilo);  
+    }
+
+    public static void main(String[] args) throws IOException {
+//        seeds();
+        
+        new TelaPrincipalPresenter();
     }
 }
