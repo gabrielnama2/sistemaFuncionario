@@ -41,7 +41,7 @@ Git clone https://github.com/gabrielnama2/sistema_funcionario.git
 Para testes com a inteface gráfica, utilize o caminho
 
 ```
-projetos.sistema_funcionario.presenter.Index
+projetos.sistema_funcionario.Sistema_funcionario
 ```
 
 Para testes de funcionalidade, utilize o caminho das seeds
