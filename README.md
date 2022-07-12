@@ -41,7 +41,7 @@ Git clone https://github.com/gabrielnama2/sistema_funcionario.git
 Para testes com a inteface gráfica, utilize o caminho
 
 ```
-projetos.sistema_funcionario.presenter.Index
+projetos.sistema_funcionario.Sistema_funcionario
 ```
 
 Para testes de funcionalidade, utilize o caminho das seeds
@@ -53,24 +53,30 @@ projetos.sistema_funcionario.teste.Seeds
 O arquivo [Seeds.Java](https://github.com/gabrielnama2/sistema_funcionario/blob/danilo/src/main/java/projetos/sistema_funcionario/test/Seeds.java) possui exemplos de testes
 
 ```
-public static void seeds() throws IOException {
-    //CRIA UM ARQUIVO
-    Arquivo arq = new Arquivo();
-
-    //CRIA UMA COLEÇÃO (LISTA) DE FUNCIONÁRIOS
+public static void seeds() {
     FuncionarioCollection funcionarios = new FuncionarioCollection();
 
-    //CRIANDO UM FUNCIONÁRIO
-    Salario salarioGabriel = new Salario("generoso", 5, 3, true, 1000);
+    //  Funcionario 1
+    Salario salarioGabriel = new Salario("generoso", 5, 4, true, 1000);
     Funcionario Gabriel = new Funcionario("Gabriel", "Estagiario", 24, salarioGabriel);
     funcionarios.incluir(Gabriel);
-    arq.salvar(Gabriel);
 
-    //CRIANDO OUTRO FUNCIONÁRIO
-    Salario salarioDanilo = new Salario("generoso", 2, 4, false, 1500);
-    Funcionario Danilo = new Funcionario("Danilo", "Programador Jr", 26, salarioDanilo);
+    //  Funcionario 2
+    Salario salarioDanilo = new Salario("generoso", 5, 4, true, 1000);
+    Funcionario Danilo = new Funcionario("Danilo", "Estagiario", 24, salarioDanilo);
     funcionarios.incluir(Danilo);
-    arq.salvar(Danilo);
+
+    // Modificar funcionários
+    funcionarios.modificar(funcionarios.getFuncionarioByName("Gabriel"), "faltas", "1");
+    funcionarios.modificar(funcionarios.getFuncionarioByName("Danilo"), "funcionarioDoMes", "false");
+        // "idade", "nome", "cargo", "faltas", "funcionarioDoMes",
+        // "tempoServico", "tipoBonusPadrao", "salarioBase"
+
+    // Calcular salário de funcionários
+    List<Funcionario> funcs = new ArrayList<Funcionario>();
+    funcs.add(funcionarios.getFuncionarioByName("Gabriel"));
+    funcs.add(funcionarios.getFuncionarioByName("Danilo"));
+    funcionarios.calcularSalarios(funcs);
 }
 ```
 

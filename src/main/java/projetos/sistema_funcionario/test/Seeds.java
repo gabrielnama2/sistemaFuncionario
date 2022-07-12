@@ -8,9 +8,7 @@ import projetos.sistema_funcionario.model.Salario;
 
 import projetos.sistema_funcionario.model.*;
 
-
 public class Seeds {
-    
     public static void seeds() {
         FuncionarioCollection funcionarios = new FuncionarioCollection();
 
