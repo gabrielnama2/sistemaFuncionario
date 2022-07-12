@@ -16,6 +16,10 @@ public class Funcionario {
         this.setIdade(idade);
         this.setSalario(salario);
     }
+
+    public Funcionario(String gabriel, String estagiario, int i, projetos.sistema_funcionario.salario.Salario salarioGabriel) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     public void consultaBonus() {
         System.out.println(this.getSalario().getBonusAbsoluto());
