@@ -36,7 +36,7 @@ Trabalho desenvolvido para a disciplina Projetos de Sistemas de Software, minist
 Git clone https://github.com/gabrielnama2/sistema_funcionario.git
 ```
 
-2 - Importe o projeto no Netbeans e assinale a classe raiz, escolhendo o caminho da mesma clique com o botão direito no projeto: Properties > Run -> Main class -> Escolha o caminho da classe raiz
+2 - Importe o projeto no Netbeans e assinale a classe raiz, escolhendo o caminho da mesm. Clique com o botão direito no projeto: Properties > Run -> Main class -> Escolha o caminho da classe raiz
 
 Para testes com a inteface gráfica, utilize o caminho
 
@@ -96,7 +96,7 @@ Um sistema simples de funcionário, com possibilidade de adicionar, remover, mod
 
 ## :memo: Licença
 
-Este projeto está sobre a licença MIT. Veja [LICENSE](https://github.com/Danilo-Js/Repo-Searcher/blob/master/LICENSE) para mais informações.
+Este projeto está sobre a licença MIT. Veja [LICENSE](https://github.com/gabrielnama2/sistema_funcionario/blob/main/LICENSE) para mais informações.
 
 Feito por: Danilo José, Gabriel Namã, Ikaro
 
